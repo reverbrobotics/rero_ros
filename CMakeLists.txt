@@ -136,6 +136,8 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${PROJECT_SOURCE_DIR}/lib/client/include
+  ${PROJECT_SOURCE_DIR}/lib/client
 )
 
 ## Declare a C++ library
@@ -171,6 +173,7 @@ include_directories(
 add_executable(speech_recognition src/speech_recognition.cpp)
 target_link_libraries(
   speech_recognition
+  ${PROJECT_SOURCE_DIR}/lib/client/libReroClient.a
   ${catkin_LIBRARIES}
   ${_REFLECTION}
   ${_GRPC_GRPCPP}

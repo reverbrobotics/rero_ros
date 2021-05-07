@@ -1,12 +1,18 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include <grpcpp/grpcpp.h>
+#include <AudioClient.h>
+#include <SpeechRecognitionClient.h>
 
 using grpc::Status;
 using grpc::Channel;
 using grpc::ClientContext;
 using grpc::ClientReader;
 using grpc::ClientWriter;
+
+using rero::StreamRequest;
+using rero::AudioStreamer;
+using rero::Audio;
 
 #include <sstream>
 
