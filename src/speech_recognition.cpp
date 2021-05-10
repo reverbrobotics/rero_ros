@@ -21,7 +21,7 @@ using rero::Audio;
  * This tutorial demonstrates simple sending of messages over the ROS system.
  */
 int main(int argc, char **argv) {
-  ros::init(argc, argv, "rero_ros", ros::init_options::AnonymousName);
+  ros::init(argc, argv, "rero_speech_recognition", ros::init_options::AnonymousName);
 
   ros::NodeHandle n;
 

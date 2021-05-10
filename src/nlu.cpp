@@ -67,7 +67,12 @@ int main(int argc, char **argv) {
 
   std::string address = grpcHost+":"+grpcPort;
 
-  client = new NLUClient(grpc::CreateChannel(address, grpc::InsecureChannelCredentials()));
+  auto nluChannel = grpc::CreateChannel(address, grpc::InsecureChannelCredentials());
+  client = new NLUClient(nluChannel);
+
+    if(nluChannel->GetState(false) == GRPC_CHANNEL_TRANSIENT_FAILURE) {
+        ROS_INFO("gRPC Cannot Communicate with ReroCore Audio Server!");
+    }
 
   pub = n.advertise<rero_ros::Intent>(outputTopicName, 1000);
   ros::Subscriber sub = n.subscribe(inputTopicName, 1000, speechRecognitionCallback);
