@@ -1,0 +1,12 @@
+<launch>
+  <group ns="rero_ros">
+    <!-- set /speech_recognition/ -->
+    <param name="core_host" value="0.0.0.0" />
+    <param name="core_port" value="50052" type="str" />
+    <param name="input_topic_name" value="/rero_ros/recognized_text" />
+    <param name="output_topic_name" value="/rero_ros/nlu_result" />
+
+    <node pkg="rero_ros" name="nlu" type="nlu" output="screen">
+    </node>
+  </group>
+</launch>
