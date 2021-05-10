@@ -1,7 +1,5 @@
 <launch>
-
   <group ns="rero_ros">
-
     <!-- set /speech_recognition/ -->
     <param name="core_host" value="0.0.0.0" />
     <param name="core_port" value="50052" type="str" />
@@ -10,9 +8,6 @@
 
       <!-- set /speech_recognition/recognize/topic_name -->
       <param name="topic_name" value="random" />
-      
     </node>
-    
   </group>
-  
 </launch>
