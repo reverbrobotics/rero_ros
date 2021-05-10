@@ -35,20 +35,28 @@ int main(int argc, char **argv) {
 
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>(topicName, 1000);
 
-  std::cout << "server ip" << grpcHost+":"+grpcPort << std::endl;
+  auto audioChannel = grpc::CreateChannel(grpcHost+":"+grpcPort, grpc::InsecureChannelCredentials());
+  auto srChannel = grpc::CreateChannel(grpcHost+":"+grpcPort, grpc::InsecureChannelCredentials());
 
-  SpeechRecognitionClient client(
-      grpc::CreateChannel(grpcHost+":"+grpcPort, grpc::InsecureChannelCredentials()),
-        grpc::CreateChannel(grpcHost+":"+grpcPort, grpc::InsecureChannelCredentials())
-        );
+  SpeechRecognitionClient client(audioChannel, srChannel);
 
   while (ros::ok()) {
-    /**
-     * This is a message object. You stuff it with data, and then publish it.
-     */
-    std_msgs::String msg;
+    if(audioChannel->GetState(false) == GRPC_CHANNEL_TRANSIENT_FAILURE ||
+     srChannel->GetState(false) == GRPC_CHANNEL_TRANSIENT_FAILURE) {
+      ROS_INFO("gRPC Cannot Communicate with ReroCore Audio Server!");
+      ros::Duration(2.0).sleep();
+      ros::spinOnce();
+      continue;
+    }
 
+    std_msgs::String msg;
     SpeechRecognitionResult result = client.StreamAudio();
+
+    if(result.result().empty()) {
+        ros::spinOnce();
+        continue;
+    }
+
     json::JSON resultObject = json::JSON::Load(result.result());
 
     msg.data = resultObject["text"].ToString();
