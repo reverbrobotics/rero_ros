@@ -21,7 +21,7 @@ using rero::Audio;
  * This tutorial demonstrates simple sending of messages over the ROS system.
  */
 int main(int argc, char **argv) {
-  ros::init(argc, argv, "rero_speech_recognition");
+  ros::init(argc, argv, "rero_ros", ros::init_options::AnonymousName);
 
   ros::NodeHandle n;
 
@@ -29,9 +29,11 @@ int main(int argc, char **argv) {
   std::string grpcPort;
   std::string topicName;
 
-  n.getParam("/rero_ros/core_host", grpcHost);
-  n.getParam("/rero_ros/core_port", grpcPort);
-  n.getParam("/rero_ros/topic_name", topicName);
+  n.getParam("core_host", grpcHost);
+  n.getParam("core_port", grpcPort);
+  n.getParam("topic_name", topicName);
+
+  std::cout << "topic name: " << topicName << std::endl;
 
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>(topicName, 1000);
 
