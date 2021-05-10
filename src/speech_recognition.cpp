@@ -25,15 +25,22 @@ int main(int argc, char **argv) {
 
   ros::NodeHandle n;
 
-  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("result", 1000);
+  std::string grpcHost;
+  std::string grpcPort;
+  std::string topicName;
 
-  std::string grpcHost = "0.0.0.0";
-  std::string grpcPort = "50052";
+  n.getParam("/rero_ros/core_host", grpcHost);
+  n.getParam("/rero_ros/core_port", grpcPort);
+  n.getParam("/rero_ros/topic_name", topicName);
+
+  ros::Publisher chatter_pub = n.advertise<std_msgs::String>(topicName, 1000);
+
+  std::cout << "server ip" << grpcHost+":"+grpcPort << std::endl;
 
   SpeechRecognitionClient client(
-          grpc::CreateChannel(grpcHost+":"+grpcPort, grpc::InsecureChannelCredentials()),
-            grpc::CreateChannel(grpcHost+":"+grpcPort, grpc::InsecureChannelCredentials())
-            );
+      grpc::CreateChannel(grpcHost+":"+grpcPort, grpc::InsecureChannelCredentials()),
+        grpc::CreateChannel(grpcHost+":"+grpcPort, grpc::InsecureChannelCredentials())
+        );
 
   while (ros::ok()) {
     /**
