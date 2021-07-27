@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(rero_ros)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -latomic")
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 
@@ -93,6 +94,12 @@ include_directories(
 #   ${catkin_LIBRARIES}
 # )
 
+IF(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm") 
+set(RERO_LIB_NAME "libReroClientARMv7.a") 
+ELSE(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
+set(RERO_LIB_NAME "libReroClient.a")
+ENDIF(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
+
 add_executable(speech_recognition src/speech_recognition.cpp)
 add_executable(nlu src/nlu.cpp)
 add_executable(text_to_speech src/text_to_speech.cpp)
@@ -100,16 +107,16 @@ add_executable(text_to_speech src/text_to_speech.cpp)
 
 target_link_libraries(
   speech_recognition
-  ${PROJECT_SOURCE_DIR}/lib/client/libReroClient.a
+  ${PROJECT_SOURCE_DIR}/lib/client/${RERO_LIB_NAME}
   ${catkin_LIBRARIES}
   ${_REFLECTION}
   ${_GRPC_GRPCPP}
   ${_PROTOBUF_LIBPROTOBUF}
-  )
+)
 
 target_link_libraries(
         nlu
-        ${PROJECT_SOURCE_DIR}/lib/client/libReroClient.a
+        ${PROJECT_SOURCE_DIR}/lib/client/${RERO_LIB_NAME}
         ${catkin_LIBRARIES}
         ${_REFLECTION}
         ${_GRPC_GRPCPP}
