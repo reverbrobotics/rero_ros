@@ -39,7 +39,7 @@ AudioStreamer::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& chan
   return ::grpc::internal::ClientReaderFactory< ::rero::Audio>::Create(channel_.get(), rpcmethod_GetStream_, context, request);
 }
 
-void AudioStreamer::Stub::experimental_async::GetStream(::grpc::ClientContext* context, ::rero::StreamRequest* request, ::grpc::experimental::ClientReadReactor< ::rero::Audio>* reactor) {
+void AudioStreamer::Stub::experimental_async::GetStream(::grpc::ClientContext* context, const ::rero::StreamRequest* request, ::grpc::experimental::ClientReadReactor< ::rero::Audio>* reactor) {
   ::grpc::internal::ClientCallbackReaderFactory< ::rero::Audio>::Create(stub_->channel_.get(), stub_->rpcmethod_GetStream_, context, request, reactor);
 }
 

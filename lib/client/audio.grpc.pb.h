@@ -51,9 +51,9 @@ class AudioStreamer final {
       virtual ~experimental_async_interface() {}
       // Sends a greeting
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void GetStream(::grpc::ClientContext* context, ::rero::StreamRequest* request, ::grpc::ClientReadReactor< ::rero::Audio>* reactor) = 0;
+      virtual void GetStream(::grpc::ClientContext* context, const ::rero::StreamRequest* request, ::grpc::ClientReadReactor< ::rero::Audio>* reactor) = 0;
       #else
-      virtual void GetStream(::grpc::ClientContext* context, ::rero::StreamRequest* request, ::grpc::experimental::ClientReadReactor< ::rero::Audio>* reactor) = 0;
+      virtual void GetStream(::grpc::ClientContext* context, const ::rero::StreamRequest* request, ::grpc::experimental::ClientReadReactor< ::rero::Audio>* reactor) = 0;
       #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -84,9 +84,9 @@ class AudioStreamer final {
       public StubInterface::experimental_async_interface {
      public:
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void GetStream(::grpc::ClientContext* context, ::rero::StreamRequest* request, ::grpc::ClientReadReactor< ::rero::Audio>* reactor) override;
+      void GetStream(::grpc::ClientContext* context, const ::rero::StreamRequest* request, ::grpc::ClientReadReactor< ::rero::Audio>* reactor) override;
       #else
-      void GetStream(::grpc::ClientContext* context, ::rero::StreamRequest* request, ::grpc::experimental::ClientReadReactor< ::rero::Audio>* reactor) override;
+      void GetStream(::grpc::ClientContext* context, const ::rero::StreamRequest* request, ::grpc::experimental::ClientReadReactor< ::rero::Audio>* reactor) override;
       #endif
      private:
       friend class Stub;

@@ -95,6 +95,7 @@ include_directories(
 
 add_executable(speech_recognition src/speech_recognition.cpp)
 add_executable(nlu src/nlu.cpp)
+add_executable(text_to_speech src/text_to_speech.cpp)
 
 
 target_link_libraries(
@@ -108,6 +109,15 @@ target_link_libraries(
 
 target_link_libraries(
         nlu
+        ${PROJECT_SOURCE_DIR}/lib/client/libReroClient.a
+        ${catkin_LIBRARIES}
+        ${_REFLECTION}
+        ${_GRPC_GRPCPP}
+        ${_PROTOBUF_LIBPROTOBUF}
+)
+
+target_link_libraries(
+        text_to_speech
         ${PROJECT_SOURCE_DIR}/lib/client/libReroClient.a
         ${catkin_LIBRARIES}
         ${_REFLECTION}

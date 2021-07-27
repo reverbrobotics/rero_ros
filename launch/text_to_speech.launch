@@ -1,0 +1,11 @@
+<launch>
+  <group ns="rero_ros">
+    <!-- set /speech_recognition/ -->
+    <param name="core_host" value="0.0.0.0" />
+    <param name="core_port" value="50052" type="str" />
+    <param name="input_topic_name" value="/rero_ros/text_to_speech" />
+
+    <node pkg="rero_ros" name="text_to_speech" type="text_to_speech" output="screen">
+    </node>
+  </group>
+</launch>
