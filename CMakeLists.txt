@@ -94,6 +94,8 @@ include_directories(
 #   ${catkin_LIBRARIES}
 # )
 
+message(${CMAKE_SYSTEM_PROCESSOR})
+
 IF(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm") 
 set(RERO_LIB_NAME "libReroClientARMv7.a") 
 ELSE(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
@@ -125,7 +127,7 @@ target_link_libraries(
 
 target_link_libraries(
         text_to_speech
-        ${PROJECT_SOURCE_DIR}/lib/client/libReroClient.a
+        ${PROJECT_SOURCE_DIR}/lib/client/${RERO_LIB_NAME}
         ${catkin_LIBRARIES}
         ${_REFLECTION}
         ${_GRPC_GRPCPP}
