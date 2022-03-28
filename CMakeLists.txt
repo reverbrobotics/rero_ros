@@ -98,9 +98,11 @@ message(${CMAKE_SYSTEM_PROCESSOR})
 
 IF(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm") 
 set(RERO_LIB_NAME "libReroClientARMv7.a") 
-ELSE(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
+ELSEIF(${CMAKE_SYSTEM_PROCESSOR} MATCHES "aarch64")
+set(RERO_LIB_NAME "libReroClientARM64.a") 
+ELSE()
 set(RERO_LIB_NAME "libReroClient.a")
-ENDIF(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
+ENDIF()
 
 add_executable(speech_recognition src/speech_recognition.cpp)
 add_executable(nlu src/nlu.cpp)
