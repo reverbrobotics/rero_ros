@@ -1,7 +1,7 @@
-string rawValue
+string raw_value
 string entity
-string slotName
-uint16 rangeStart
-uint16 rangeEnd
-string typeName
-string typeValue
+string slot_name
+uint16 range_start
+uint16 range_end
+string type_name
+string type_value

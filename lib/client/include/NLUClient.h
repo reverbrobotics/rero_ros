@@ -12,7 +12,7 @@
 #include <grpcpp/grpcpp.h>
 #include <thread>
 #include <chrono>
-#include "nlu.grpc.pb.h"
+#include "../nlu.grpc.pb.h"
 
 #define CHECK_OVERFLOW  (0)
 #define CHECK_UNDERFLOW  (0)

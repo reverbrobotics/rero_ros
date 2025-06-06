@@ -6,19 +6,19 @@
 #include "nlu.grpc.pb.h"
 
 #include <functional>
-#include <grpcpp/impl/codegen/async_stream.h>
-#include <grpcpp/impl/codegen/async_unary_call.h>
-#include <grpcpp/impl/codegen/channel_interface.h>
-#include <grpcpp/impl/codegen/client_unary_call.h>
-#include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
-#include <grpcpp/impl/codegen/rpc_service_method.h>
-#include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
-#include <grpcpp/impl/codegen/service_type.h>
-#include <grpcpp/impl/codegen/sync_stream.h>
+#include <grpcpp/support/async_stream.h>
+#include <grpcpp/support/async_unary_call.h>
+#include <grpcpp/impl/channel_interface.h>
+#include <grpcpp/impl/client_unary_call.h>
+#include <grpcpp/support/client_callback.h>
+#include <grpcpp/support/message_allocator.h>
+#include <grpcpp/support/method_handler.h>
+#include <grpcpp/impl/rpc_service_method.h>
+#include <grpcpp/support/server_callback.h>
+#include <grpcpp/impl/server_callback_handlers.h>
+#include <grpcpp/server_context.h>
+#include <grpcpp/impl/service_type.h>
+#include <grpcpp/support/sync_stream.h>
 namespace rero {
 
 static const char* NLU_method_names[] = {
@@ -27,23 +27,23 @@ static const char* NLU_method_names[] = {
 
 std::unique_ptr< NLU::Stub> NLU::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< NLU::Stub> stub(new NLU::Stub(channel));
+  std::unique_ptr< NLU::Stub> stub(new NLU::Stub(channel, options));
   return stub;
 }
 
-NLU::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_GetSpeechIntent_(NLU_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+NLU::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_GetSpeechIntent_(NLU_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status NLU::Stub::GetSpeechIntent(::grpc::ClientContext* context, const ::rero::NLURequest& request, ::rero::Intent* response) {
   return ::grpc::internal::BlockingUnaryCall< ::rero::NLURequest, ::rero::Intent, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetSpeechIntent_, context, request, response);
 }
 
-void NLU::Stub::experimental_async::GetSpeechIntent(::grpc::ClientContext* context, const ::rero::NLURequest* request, ::rero::Intent* response, std::function<void(::grpc::Status)> f) {
+void NLU::Stub::async::GetSpeechIntent(::grpc::ClientContext* context, const ::rero::NLURequest* request, ::rero::Intent* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::rero::NLURequest, ::rero::Intent, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetSpeechIntent_, context, request, response, std::move(f));
 }
 
-void NLU::Stub::experimental_async::GetSpeechIntent(::grpc::ClientContext* context, const ::rero::NLURequest* request, ::rero::Intent* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void NLU::Stub::async::GetSpeechIntent(::grpc::ClientContext* context, const ::rero::NLURequest* request, ::rero::Intent* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetSpeechIntent_, context, request, response, reactor);
 }
 

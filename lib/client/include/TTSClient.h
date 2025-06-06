@@ -12,7 +12,7 @@
 #include <grpcpp/grpcpp.h>
 #include <thread>
 #include <chrono>
-#include "text_to_speech.grpc.pb.h"
+#include "../text_to_speech.grpc.pb.h"
 
 #define CHECK_OVERFLOW  (0)
 #define CHECK_UNDERFLOW  (0)

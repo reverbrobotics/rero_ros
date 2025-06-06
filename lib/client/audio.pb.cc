@@ -4,119 +4,205 @@
 #include "audio.pb.h"
 
 #include <algorithm>
-
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
-#include <google/protobuf/descriptor.h>
-#include <google/protobuf/generated_message_reflection.h>
-#include <google/protobuf/reflection_ops.h>
-#include <google/protobuf/wire_format.h>
+#include "google/protobuf/io/coded_stream.h"
+#include "google/protobuf/extension_set.h"
+#include "google/protobuf/wire_format_lite.h"
+#include "google/protobuf/descriptor.h"
+#include "google/protobuf/generated_message_reflection.h"
+#include "google/protobuf/reflection_ops.h"
+#include "google/protobuf/wire_format.h"
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
 
+// Must be included last.
+#include "google/protobuf/port_def.inc"
 PROTOBUF_PRAGMA_INIT_SEG
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = ::PROTOBUF_NAMESPACE_ID::internal;
 namespace rero {
-constexpr StreamRequest::StreamRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : format_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , sample_rate_(0u)
-  , num_channels_(0u)
-  , frames_per_buffer_(0u)
-  , bytes_per_sample_(0u){}
+template <typename>
+PROTOBUF_CONSTEXPR StreamRequest::StreamRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.format_)*/ {
+    &::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized {}
+  }
+
+  , /*decltype(_impl_.sample_rate_)*/ 0u
+
+  , /*decltype(_impl_.num_channels_)*/ 0u
+
+  , /*decltype(_impl_.frames_per_buffer_)*/ 0u
+
+  , /*decltype(_impl_.bytes_per_sample_)*/ 0u
+
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct StreamRequestDefaultTypeInternal {
-  constexpr StreamRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR StreamRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
   ~StreamRequestDefaultTypeInternal() {}
   union {
     StreamRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT StreamRequestDefaultTypeInternal _StreamRequest_default_instance_;
-constexpr Audio::Audio(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : raw_data_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , num_samples_(0u)
-  , num_channels_(0u)
-  , bytes_per_sample_(0u)
-  , frames_per_buffer_(0u)
-  , sample_rate_(0u){}
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StreamRequestDefaultTypeInternal _StreamRequest_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR PlayResult::PlayResult(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.pa_error_msg_)*/ {
+    &::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized {}
+  }
+
+  , /*decltype(_impl_.pa_error_code_)*/ 0u
+
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct PlayResultDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayResultDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayResultDefaultTypeInternal() {}
+  union {
+    PlayResult _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayResultDefaultTypeInternal _PlayResult_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR Audio::Audio(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.raw_data_)*/ {
+    &::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized {}
+  }
+
+  , /*decltype(_impl_.num_samples_)*/ 0u
+
+  , /*decltype(_impl_.num_channels_)*/ 0u
+
+  , /*decltype(_impl_.bytes_per_sample_)*/ 0u
+
+  , /*decltype(_impl_.frames_per_buffer_)*/ 0u
+
+  , /*decltype(_impl_.sample_rate_)*/ 0u
+
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct AudioDefaultTypeInternal {
-  constexpr AudioDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR AudioDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
   ~AudioDefaultTypeInternal() {}
   union {
     Audio _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT AudioDefaultTypeInternal _Audio_default_instance_;
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AudioDefaultTypeInternal _Audio_default_instance_;
 }  // namespace rero
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_audio_2eproto[2];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_audio_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_audio_2eproto = nullptr;
+static ::_pb::Metadata file_level_metadata_audio_2eproto[3];
+static constexpr const ::_pb::EnumDescriptor**
+    file_level_enum_descriptors_audio_2eproto = nullptr;
+static constexpr const ::_pb::ServiceDescriptor**
+    file_level_service_descriptors_audio_2eproto = nullptr;
+const ::uint32_t TableStruct_audio_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(
+    protodesc_cold) = {
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::rero::StreamRequest, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::rero::StreamRequest, _impl_.sample_rate_),
+    PROTOBUF_FIELD_OFFSET(::rero::StreamRequest, _impl_.num_channels_),
+    PROTOBUF_FIELD_OFFSET(::rero::StreamRequest, _impl_.format_),
+    PROTOBUF_FIELD_OFFSET(::rero::StreamRequest, _impl_.frames_per_buffer_),
+    PROTOBUF_FIELD_OFFSET(::rero::StreamRequest, _impl_.bytes_per_sample_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::rero::PlayResult, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::rero::PlayResult, _impl_.pa_error_code_),
+    PROTOBUF_FIELD_OFFSET(::rero::PlayResult, _impl_.pa_error_msg_),
+    ~0u,  // no _has_bits_
+    PROTOBUF_FIELD_OFFSET(::rero::Audio, _internal_metadata_),
+    ~0u,  // no _extensions_
+    ~0u,  // no _oneof_case_
+    ~0u,  // no _weak_field_map_
+    ~0u,  // no _inlined_string_donated_
+    ~0u,  // no _split_
+    ~0u,  // no sizeof(Split)
+    PROTOBUF_FIELD_OFFSET(::rero::Audio, _impl_.num_samples_),
+    PROTOBUF_FIELD_OFFSET(::rero::Audio, _impl_.num_channels_),
+    PROTOBUF_FIELD_OFFSET(::rero::Audio, _impl_.bytes_per_sample_),
+    PROTOBUF_FIELD_OFFSET(::rero::Audio, _impl_.frames_per_buffer_),
+    PROTOBUF_FIELD_OFFSET(::rero::Audio, _impl_.sample_rate_),
+    PROTOBUF_FIELD_OFFSET(::rero::Audio, _impl_.raw_data_),
+};
 
-const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_audio_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::rero::StreamRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::rero::StreamRequest, sample_rate_),
-  PROTOBUF_FIELD_OFFSET(::rero::StreamRequest, num_channels_),
-  PROTOBUF_FIELD_OFFSET(::rero::StreamRequest, format_),
-  PROTOBUF_FIELD_OFFSET(::rero::StreamRequest, frames_per_buffer_),
-  PROTOBUF_FIELD_OFFSET(::rero::StreamRequest, bytes_per_sample_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::rero::Audio, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::rero::Audio, num_samples_),
-  PROTOBUF_FIELD_OFFSET(::rero::Audio, num_channels_),
-  PROTOBUF_FIELD_OFFSET(::rero::Audio, bytes_per_sample_),
-  PROTOBUF_FIELD_OFFSET(::rero::Audio, frames_per_buffer_),
-  PROTOBUF_FIELD_OFFSET(::rero::Audio, sample_rate_),
-  PROTOBUF_FIELD_OFFSET(::rero::Audio, raw_data_),
-};
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::rero::StreamRequest)},
-  { 10, -1, sizeof(::rero::Audio)},
+static const ::_pbi::MigrationSchema
+    schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+        { 0, -1, -1, sizeof(::rero::StreamRequest)},
+        { 13, -1, -1, sizeof(::rero::PlayResult)},
+        { 23, -1, -1, sizeof(::rero::Audio)},
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::rero::_StreamRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::rero::_Audio_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+    &::rero::_StreamRequest_default_instance_._instance,
+    &::rero::_PlayResult_default_instance_._instance,
+    &::rero::_Audio_default_instance_._instance,
+};
+const char descriptor_table_protodef_audio_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+    "\n\013audio.proto\022\004rero\"\177\n\rStreamRequest\022\023\n\013"
+    "sample_rate\030\001 \001(\r\022\024\n\014num_channels\030\002 \001(\r\022"
+    "\016\n\006format\030\003 \001(\t\022\031\n\021frames_per_buffer\030\004 \001"
+    "(\r\022\030\n\020bytes_per_sample\030\005 \001(\r\"9\n\nPlayResu"
+    "lt\022\025\n\rpa_error_code\030\001 \001(\r\022\024\n\014pa_error_ms"
+    "g\030\002 \001(\t\"\216\001\n\005Audio\022\023\n\013num_samples\030\001 \001(\r\022\024"
+    "\n\014num_channels\030\002 \001(\r\022\030\n\020bytes_per_sample"
+    "\030\003 \001(\r\022\031\n\021frames_per_buffer\030\004 \001(\r\022\023\n\013sam"
+    "ple_rate\030\005 \001(\r\022\020\n\010raw_data\030\006 \001(\0142r\n\rAudi"
+    "oStreamer\0221\n\tGetStream\022\023.rero.StreamRequ"
+    "est\032\013.rero.Audio\"\0000\001\022.\n\tPlayAudio\022\013.rero"
+    ".Audio\032\020.rero.PlayResult\"\000(\001b\006proto3"
+};
+static ::absl::once_flag descriptor_table_audio_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_audio_2eproto = {
+    false,
+    false,
+    476,
+    descriptor_table_protodef_audio_2eproto,
+    "audio.proto",
+    &descriptor_table_audio_2eproto_once,
+    nullptr,
+    0,
+    3,
+    schemas,
+    file_default_instances,
+    TableStruct_audio_2eproto::offsets,
+    file_level_metadata_audio_2eproto,
+    file_level_enum_descriptors_audio_2eproto,
+    file_level_service_descriptors_audio_2eproto,
 };
 
-const char descriptor_table_protodef_audio_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\013audio.proto\022\004rero\"\177\n\rStreamRequest\022\023\n\013"
-  "sample_rate\030\001 \001(\r\022\024\n\014num_channels\030\002 \001(\r\022"
-  "\016\n\006format\030\003 \001(\t\022\031\n\021frames_per_buffer\030\004 \001"
-  "(\r\022\030\n\020bytes_per_sample\030\005 \001(\r\"\216\001\n\005Audio\022\023"
-  "\n\013num_samples\030\001 \001(\r\022\024\n\014num_channels\030\002 \001("
-  "\r\022\030\n\020bytes_per_sample\030\003 \001(\r\022\031\n\021frames_pe"
-  "r_buffer\030\004 \001(\r\022\023\n\013sample_rate\030\005 \001(\r\022\020\n\010r"
-  "aw_data\030\006 \001(\0142B\n\rAudioStreamer\0221\n\tGetStr"
-  "eam\022\023.rero.StreamRequest\032\013.rero.Audio\"\0000"
-  "\001b\006proto3"
-  ;
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_audio_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_audio_2eproto = {
-  false, false, 369, descriptor_table_protodef_audio_2eproto, "audio.proto", 
-  &descriptor_table_audio_2eproto_once, nullptr, 0, 2,
-  schemas, file_default_instances, TableStruct_audio_2eproto::offsets,
-  file_level_metadata_audio_2eproto, file_level_enum_descriptors_audio_2eproto, file_level_service_descriptors_audio_2eproto,
-};
-PROTOBUF_ATTRIBUTE_WEAK ::PROTOBUF_NAMESPACE_ID::Metadata
-descriptor_table_audio_2eproto_metadata_getter(int index) {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_audio_2eproto);
-  return descriptor_table_audio_2eproto.file_level_metadata[index];
+// This function exists to be marked as weak.
+// It can significantly speed up compilation by breaking up LLVM's SCC
+// in the .pb.cc translation units. Large translation units see a
+// reduction of more than 35% of walltime for optimized builds. Without
+// the weak attribute all the messages in the file, including all the
+// vtables and everything they use become part of the same SCC through
+// a cycle like:
+// GetMetadata -> descriptor table -> default instances ->
+//   vtables -> GetMetadata
+// By adding a weak function here we break the connection from the
+// individual vtables back into the descriptor table.
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_audio_2eproto_getter() {
+  return &descriptor_table_audio_2eproto;
 }
-
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_audio_2eproto(&descriptor_table_audio_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2
+static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_audio_2eproto(&descriptor_table_audio_2eproto);
 namespace rero {
-
 // ===================================================================
 
 class StreamRequest::_Internal {
@@ -125,276 +211,289 @@ class StreamRequest::_Internal {
 
 StreamRequest::StreamRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:rero.StreamRequest)
 }
 StreamRequest::StreamRequest(const StreamRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  StreamRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.format_) {}
+
+    , decltype(_impl_.sample_rate_) {}
+
+    , decltype(_impl_.num_channels_) {}
+
+    , decltype(_impl_.frames_per_buffer_) {}
+
+    , decltype(_impl_.bytes_per_sample_) {}
+
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  format_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.format_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        _impl_.format_.Set("", GetArenaForAllocation());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_format().empty()) {
-    format_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_format(), 
-      GetArena());
+    _this->_impl_.format_.Set(from._internal_format(), _this->GetArenaForAllocation());
   }
-  ::memcpy(&sample_rate_, &from.sample_rate_,
-    static_cast<size_t>(reinterpret_cast<char*>(&bytes_per_sample_) -
-    reinterpret_cast<char*>(&sample_rate_)) + sizeof(bytes_per_sample_));
+  ::memcpy(&_impl_.sample_rate_, &from._impl_.sample_rate_,
+    static_cast<::size_t>(reinterpret_cast<char*>(&_impl_.bytes_per_sample_) -
+    reinterpret_cast<char*>(&_impl_.sample_rate_)) + sizeof(_impl_.bytes_per_sample_));
   // @@protoc_insertion_point(copy_constructor:rero.StreamRequest)
 }
 
-void StreamRequest::SharedCtor() {
-format_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&sample_rate_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&bytes_per_sample_) -
-    reinterpret_cast<char*>(&sample_rate_)) + sizeof(bytes_per_sample_));
+inline void StreamRequest::SharedCtor(::_pb::Arena* arena) {
+  (void)arena;
+  new (&_impl_) Impl_{
+      decltype(_impl_.format_) {}
+
+    , decltype(_impl_.sample_rate_) { 0u }
+
+    , decltype(_impl_.num_channels_) { 0u }
+
+    , decltype(_impl_.frames_per_buffer_) { 0u }
+
+    , decltype(_impl_.bytes_per_sample_) { 0u }
+
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.format_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        _impl_.format_.Set("", GetArenaForAllocation());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 StreamRequest::~StreamRequest() {
   // @@protoc_insertion_point(destructor:rero.StreamRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void StreamRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  format_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void StreamRequest::SharedDtor() {
+  ABSL_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.format_.Destroy();
 }
 
-void StreamRequest::ArenaDtor(void* object) {
-  StreamRequest* _this = reinterpret_cast< StreamRequest* >(object);
-  (void)_this;
-}
-void StreamRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void StreamRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void StreamRequest::Clear() {
 // @@protoc_insertion_point(message_clear_start:rero.StreamRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  format_.ClearToEmpty();
-  ::memset(&sample_rate_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&bytes_per_sample_) -
-      reinterpret_cast<char*>(&sample_rate_)) + sizeof(bytes_per_sample_));
+  _impl_.format_.ClearToEmpty();
+  ::memset(&_impl_.sample_rate_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.bytes_per_sample_) -
+      reinterpret_cast<char*>(&_impl_.sample_rate_)) + sizeof(_impl_.bytes_per_sample_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* StreamRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* StreamRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    ::uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint32 sample_rate = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          sample_rate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 8)) {
+          _impl_.sample_rate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else {
+          goto handle_unusual;
+        }
         continue;
       // uint32 num_channels = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          num_channels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 16)) {
+          _impl_.num_channels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else {
+          goto handle_unusual;
+        }
         continue;
       // string format = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_format();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "rero.StreamRequest.format"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+          CHK_(::_pbi::VerifyUTF8(str, "rero.StreamRequest.format"));
+        } else {
+          goto handle_unusual;
+        }
         continue;
       // uint32 frames_per_buffer = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          frames_per_buffer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 32)) {
+          _impl_.frames_per_buffer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else {
+          goto handle_unusual;
+        }
         continue;
       // uint32 bytes_per_sample = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          bytes_per_sample_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 40)) {
+          _impl_.bytes_per_sample_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
+        } else {
+          goto handle_unusual;
         }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
         continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* StreamRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::uint8_t* StreamRequest::_InternalSerialize(
+    ::uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:rero.StreamRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint32 sample_rate = 1;
-  if (this->sample_rate() != 0) {
+  if (this->_internal_sample_rate() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_sample_rate(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+        1, this->_internal_sample_rate(), target);
   }
 
   // uint32 num_channels = 2;
-  if (this->num_channels() != 0) {
+  if (this->_internal_num_channels() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_num_channels(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+        2, this->_internal_num_channels(), target);
   }
 
   // string format = 3;
-  if (this->format().size() > 0) {
+  if (!this->_internal_format().empty()) {
+    const std::string& _s = this->_internal_format();
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_format().data(), static_cast<int>(this->_internal_format().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "rero.StreamRequest.format");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_format(), target);
+        _s.data(), static_cast<int>(_s.length()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE, "rero.StreamRequest.format");
+    target = stream->WriteStringMaybeAliased(3, _s, target);
   }
 
   // uint32 frames_per_buffer = 4;
-  if (this->frames_per_buffer() != 0) {
+  if (this->_internal_frames_per_buffer() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_frames_per_buffer(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+        4, this->_internal_frames_per_buffer(), target);
   }
 
   // uint32 bytes_per_sample = 5;
-  if (this->bytes_per_sample() != 0) {
+  if (this->_internal_bytes_per_sample() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_bytes_per_sample(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+        5, this->_internal_bytes_per_sample(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:rero.StreamRequest)
   return target;
 }
 
-size_t StreamRequest::ByteSizeLong() const {
+::size_t StreamRequest::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:rero.StreamRequest)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // string format = 3;
-  if (this->format().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_format());
+  if (!this->_internal_format().empty()) {
+    total_size += 1 + ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+                                    this->_internal_format());
   }
 
   // uint32 sample_rate = 1;
-  if (this->sample_rate() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+  if (this->_internal_sample_rate() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
         this->_internal_sample_rate());
   }
 
   // uint32 num_channels = 2;
-  if (this->num_channels() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+  if (this->_internal_num_channels() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
         this->_internal_num_channels());
   }
 
   // uint32 frames_per_buffer = 4;
-  if (this->frames_per_buffer() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+  if (this->_internal_frames_per_buffer() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
         this->_internal_frames_per_buffer());
   }
 
   // uint32 bytes_per_sample = 5;
-  if (this->bytes_per_sample() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+  if (this->_internal_bytes_per_sample() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
         this->_internal_bytes_per_sample());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void StreamRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:rero.StreamRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const StreamRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<StreamRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:rero.StreamRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:rero.StreamRequest)
-    MergeFrom(*source);
-  }
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData StreamRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    StreamRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*StreamRequest::GetClassData() const { return &_class_data_; }
 
-void StreamRequest::MergeFrom(const StreamRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:rero.StreamRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void StreamRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<StreamRequest*>(&to_msg);
+  auto& from = static_cast<const StreamRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:rero.StreamRequest)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.format().size() > 0) {
-    _internal_set_format(from._internal_format());
+  if (!from._internal_format().empty()) {
+    _this->_internal_set_format(from._internal_format());
   }
-  if (from.sample_rate() != 0) {
-    _internal_set_sample_rate(from._internal_sample_rate());
+  if (from._internal_sample_rate() != 0) {
+    _this->_internal_set_sample_rate(from._internal_sample_rate());
   }
-  if (from.num_channels() != 0) {
-    _internal_set_num_channels(from._internal_num_channels());
+  if (from._internal_num_channels() != 0) {
+    _this->_internal_set_num_channels(from._internal_num_channels());
   }
-  if (from.frames_per_buffer() != 0) {
-    _internal_set_frames_per_buffer(from._internal_frames_per_buffer());
+  if (from._internal_frames_per_buffer() != 0) {
+    _this->_internal_set_frames_per_buffer(from._internal_frames_per_buffer());
   }
-  if (from.bytes_per_sample() != 0) {
-    _internal_set_bytes_per_sample(from._internal_bytes_per_sample());
+  if (from._internal_bytes_per_sample() != 0) {
+    _this->_internal_set_bytes_per_sample(from._internal_bytes_per_sample());
   }
-}
-
-void StreamRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:rero.StreamRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void StreamRequest::CopyFrom(const StreamRequest& from) {
@@ -410,21 +509,253 @@ bool StreamRequest::IsInitialized() const {
 
 void StreamRequest::InternalSwap(StreamRequest* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  format_.Swap(&other->format_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.format_, lhs_arena,
+                                       &other->_impl_.format_, rhs_arena);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(StreamRequest, bytes_per_sample_)
-      + sizeof(StreamRequest::bytes_per_sample_)
-      - PROTOBUF_FIELD_OFFSET(StreamRequest, sample_rate_)>(
-          reinterpret_cast<char*>(&sample_rate_),
-          reinterpret_cast<char*>(&other->sample_rate_));
+      PROTOBUF_FIELD_OFFSET(StreamRequest, _impl_.bytes_per_sample_)
+      + sizeof(StreamRequest::_impl_.bytes_per_sample_)
+      - PROTOBUF_FIELD_OFFSET(StreamRequest, _impl_.sample_rate_)>(
+          reinterpret_cast<char*>(&_impl_.sample_rate_),
+          reinterpret_cast<char*>(&other->_impl_.sample_rate_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata StreamRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_audio_2eproto_getter, &descriptor_table_audio_2eproto_once,
+      file_level_metadata_audio_2eproto[0]);
+}
+// ===================================================================
+
+class PlayResult::_Internal {
+ public:
+};
+
+PlayResult::PlayResult(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:rero.PlayResult)
+}
+PlayResult::PlayResult(const PlayResult& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  PlayResult* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.pa_error_msg_) {}
+
+    , decltype(_impl_.pa_error_code_) {}
+
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.pa_error_msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        _impl_.pa_error_msg_.Set("", GetArenaForAllocation());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_pa_error_msg().empty()) {
+    _this->_impl_.pa_error_msg_.Set(from._internal_pa_error_msg(), _this->GetArenaForAllocation());
+  }
+  _this->_impl_.pa_error_code_ = from._impl_.pa_error_code_;
+  // @@protoc_insertion_point(copy_constructor:rero.PlayResult)
 }
 
+inline void PlayResult::SharedCtor(::_pb::Arena* arena) {
+  (void)arena;
+  new (&_impl_) Impl_{
+      decltype(_impl_.pa_error_msg_) {}
 
+    , decltype(_impl_.pa_error_code_) { 0u }
+
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.pa_error_msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        _impl_.pa_error_msg_.Set("", GetArenaForAllocation());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+PlayResult::~PlayResult() {
+  // @@protoc_insertion_point(destructor:rero.PlayResult)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void PlayResult::SharedDtor() {
+  ABSL_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.pa_error_msg_.Destroy();
+}
+
+void PlayResult::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void PlayResult::Clear() {
+// @@protoc_insertion_point(message_clear_start:rero.PlayResult)
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.pa_error_msg_.ClearToEmpty();
+  _impl_.pa_error_code_ = 0u;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* PlayResult::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 pa_error_code = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 8)) {
+          _impl_.pa_error_code_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else {
+          goto handle_unusual;
+        }
+        continue;
+      // string pa_error_msg = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_pa_error_msg();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "rero.PlayResult.pa_error_msg"));
+        } else {
+          goto handle_unusual;
+        }
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+::uint8_t* PlayResult::_InternalSerialize(
+    ::uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:rero.PlayResult)
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 pa_error_code = 1;
+  if (this->_internal_pa_error_code() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+        1, this->_internal_pa_error_code(), target);
+  }
+
+  // string pa_error_msg = 2;
+  if (!this->_internal_pa_error_msg().empty()) {
+    const std::string& _s = this->_internal_pa_error_msg();
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE, "rero.PlayResult.pa_error_msg");
+    target = stream->WriteStringMaybeAliased(2, _s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:rero.PlayResult)
+  return target;
+}
+
+::size_t PlayResult::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:rero.PlayResult)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string pa_error_msg = 2;
+  if (!this->_internal_pa_error_msg().empty()) {
+    total_size += 1 + ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+                                    this->_internal_pa_error_msg());
+  }
+
+  // uint32 pa_error_code = 1;
+  if (this->_internal_pa_error_code() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
+        this->_internal_pa_error_code());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PlayResult::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    PlayResult::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PlayResult::GetClassData() const { return &_class_data_; }
+
+
+void PlayResult::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<PlayResult*>(&to_msg);
+  auto& from = static_cast<const PlayResult&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:rero.PlayResult)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_pa_error_msg().empty()) {
+    _this->_internal_set_pa_error_msg(from._internal_pa_error_msg());
+  }
+  if (from._internal_pa_error_code() != 0) {
+    _this->_internal_set_pa_error_code(from._internal_pa_error_code());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void PlayResult::CopyFrom(const PlayResult& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:rero.PlayResult)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PlayResult::IsInitialized() const {
+  return true;
+}
+
+void PlayResult::InternalSwap(PlayResult* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.pa_error_msg_, lhs_arena,
+                                       &other->_impl_.pa_error_msg_, rhs_arena);
+
+  swap(_impl_.pa_error_code_, other->_impl_.pa_error_code_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata PlayResult::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_audio_2eproto_getter, &descriptor_table_audio_2eproto_once,
+      file_level_metadata_audio_2eproto[1]);
+}
 // ===================================================================
 
 class Audio::_Internal {
@@ -433,294 +764,315 @@ class Audio::_Internal {
 
 Audio::Audio(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+  SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:rero.Audio)
 }
 Audio::Audio(const Audio& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Audio* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.raw_data_) {}
+
+    , decltype(_impl_.num_samples_) {}
+
+    , decltype(_impl_.num_channels_) {}
+
+    , decltype(_impl_.bytes_per_sample_) {}
+
+    , decltype(_impl_.frames_per_buffer_) {}
+
+    , decltype(_impl_.sample_rate_) {}
+
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  raw_data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.raw_data_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        _impl_.raw_data_.Set("", GetArenaForAllocation());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_raw_data().empty()) {
-    raw_data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_raw_data(), 
-      GetArena());
+    _this->_impl_.raw_data_.Set(from._internal_raw_data(), _this->GetArenaForAllocation());
   }
-  ::memcpy(&num_samples_, &from.num_samples_,
-    static_cast<size_t>(reinterpret_cast<char*>(&sample_rate_) -
-    reinterpret_cast<char*>(&num_samples_)) + sizeof(sample_rate_));
+  ::memcpy(&_impl_.num_samples_, &from._impl_.num_samples_,
+    static_cast<::size_t>(reinterpret_cast<char*>(&_impl_.sample_rate_) -
+    reinterpret_cast<char*>(&_impl_.num_samples_)) + sizeof(_impl_.sample_rate_));
   // @@protoc_insertion_point(copy_constructor:rero.Audio)
 }
 
-void Audio::SharedCtor() {
-raw_data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&num_samples_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&sample_rate_) -
-    reinterpret_cast<char*>(&num_samples_)) + sizeof(sample_rate_));
+inline void Audio::SharedCtor(::_pb::Arena* arena) {
+  (void)arena;
+  new (&_impl_) Impl_{
+      decltype(_impl_.raw_data_) {}
+
+    , decltype(_impl_.num_samples_) { 0u }
+
+    , decltype(_impl_.num_channels_) { 0u }
+
+    , decltype(_impl_.bytes_per_sample_) { 0u }
+
+    , decltype(_impl_.frames_per_buffer_) { 0u }
+
+    , decltype(_impl_.sample_rate_) { 0u }
+
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.raw_data_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        _impl_.raw_data_.Set("", GetArenaForAllocation());
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 Audio::~Audio() {
   // @@protoc_insertion_point(destructor:rero.Audio)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void Audio::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  raw_data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void Audio::SharedDtor() {
+  ABSL_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.raw_data_.Destroy();
 }
 
-void Audio::ArenaDtor(void* object) {
-  Audio* _this = reinterpret_cast< Audio* >(object);
-  (void)_this;
-}
-void Audio::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Audio::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Audio::Clear() {
 // @@protoc_insertion_point(message_clear_start:rero.Audio)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  raw_data_.ClearToEmpty();
-  ::memset(&num_samples_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&sample_rate_) -
-      reinterpret_cast<char*>(&num_samples_)) + sizeof(sample_rate_));
+  _impl_.raw_data_.ClearToEmpty();
+  ::memset(&_impl_.num_samples_, 0, static_cast<::size_t>(
+      reinterpret_cast<char*>(&_impl_.sample_rate_) -
+      reinterpret_cast<char*>(&_impl_.num_samples_)) + sizeof(_impl_.sample_rate_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Audio::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Audio::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
+    ::uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // uint32 num_samples = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          num_samples_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 8)) {
+          _impl_.num_samples_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else {
+          goto handle_unusual;
+        }
         continue;
       // uint32 num_channels = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          num_channels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 16)) {
+          _impl_.num_channels_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else {
+          goto handle_unusual;
+        }
         continue;
       // uint32 bytes_per_sample = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          bytes_per_sample_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 24)) {
+          _impl_.bytes_per_sample_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else {
+          goto handle_unusual;
+        }
         continue;
       // uint32 frames_per_buffer = 4;
       case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          frames_per_buffer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 32)) {
+          _impl_.frames_per_buffer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else {
+          goto handle_unusual;
+        }
         continue;
       // uint32 sample_rate = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
-          sample_rate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 40)) {
+          _impl_.sample_rate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else {
+          goto handle_unusual;
+        }
         continue;
       // bytes raw_data = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::uint8_t>(tag) == 50)) {
           auto str = _internal_mutable_raw_data();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
+        } else {
+          goto handle_unusual;
         }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
         continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Audio::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+::uint8_t* Audio::_InternalSerialize(
+    ::uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:rero.Audio)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   // uint32 num_samples = 1;
-  if (this->num_samples() != 0) {
+  if (this->_internal_num_samples() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_num_samples(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+        1, this->_internal_num_samples(), target);
   }
 
   // uint32 num_channels = 2;
-  if (this->num_channels() != 0) {
+  if (this->_internal_num_channels() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_num_channels(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+        2, this->_internal_num_channels(), target);
   }
 
   // uint32 bytes_per_sample = 3;
-  if (this->bytes_per_sample() != 0) {
+  if (this->_internal_bytes_per_sample() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_bytes_per_sample(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+        3, this->_internal_bytes_per_sample(), target);
   }
 
   // uint32 frames_per_buffer = 4;
-  if (this->frames_per_buffer() != 0) {
+  if (this->_internal_frames_per_buffer() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_frames_per_buffer(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+        4, this->_internal_frames_per_buffer(), target);
   }
 
   // uint32 sample_rate = 5;
-  if (this->sample_rate() != 0) {
+  if (this->_internal_sample_rate() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_sample_rate(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
+        5, this->_internal_sample_rate(), target);
   }
 
   // bytes raw_data = 6;
-  if (this->raw_data().size() > 0) {
-    target = stream->WriteBytesMaybeAliased(
-        6, this->_internal_raw_data(), target);
+  if (!this->_internal_raw_data().empty()) {
+    const std::string& _s = this->_internal_raw_data();
+    target = stream->WriteBytesMaybeAliased(6, _s, target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:rero.Audio)
   return target;
 }
 
-size_t Audio::ByteSizeLong() const {
+::size_t Audio::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:rero.Audio)
-  size_t total_size = 0;
+  ::size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  ::uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   // bytes raw_data = 6;
-  if (this->raw_data().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
-        this->_internal_raw_data());
+  if (!this->_internal_raw_data().empty()) {
+    total_size += 1 + ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+                                    this->_internal_raw_data());
   }
 
   // uint32 num_samples = 1;
-  if (this->num_samples() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+  if (this->_internal_num_samples() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
         this->_internal_num_samples());
   }
 
   // uint32 num_channels = 2;
-  if (this->num_channels() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+  if (this->_internal_num_channels() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
         this->_internal_num_channels());
   }
 
   // uint32 bytes_per_sample = 3;
-  if (this->bytes_per_sample() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+  if (this->_internal_bytes_per_sample() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
         this->_internal_bytes_per_sample());
   }
 
   // uint32 frames_per_buffer = 4;
-  if (this->frames_per_buffer() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+  if (this->_internal_frames_per_buffer() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
         this->_internal_frames_per_buffer());
   }
 
   // uint32 sample_rate = 5;
-  if (this->sample_rate() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+  if (this->_internal_sample_rate() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
         this->_internal_sample_rate());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-void Audio::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:rero.Audio)
-  GOOGLE_DCHECK_NE(&from, this);
-  const Audio* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Audio>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:rero.Audio)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:rero.Audio)
-    MergeFrom(*source);
-  }
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Audio::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Audio::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Audio::GetClassData() const { return &_class_data_; }
 
-void Audio::MergeFrom(const Audio& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:rero.Audio)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+
+void Audio::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Audio*>(&to_msg);
+  auto& from = static_cast<const Audio&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:rero.Audio)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.raw_data().size() > 0) {
-    _internal_set_raw_data(from._internal_raw_data());
+  if (!from._internal_raw_data().empty()) {
+    _this->_internal_set_raw_data(from._internal_raw_data());
   }
-  if (from.num_samples() != 0) {
-    _internal_set_num_samples(from._internal_num_samples());
+  if (from._internal_num_samples() != 0) {
+    _this->_internal_set_num_samples(from._internal_num_samples());
   }
-  if (from.num_channels() != 0) {
-    _internal_set_num_channels(from._internal_num_channels());
+  if (from._internal_num_channels() != 0) {
+    _this->_internal_set_num_channels(from._internal_num_channels());
   }
-  if (from.bytes_per_sample() != 0) {
-    _internal_set_bytes_per_sample(from._internal_bytes_per_sample());
+  if (from._internal_bytes_per_sample() != 0) {
+    _this->_internal_set_bytes_per_sample(from._internal_bytes_per_sample());
   }
-  if (from.frames_per_buffer() != 0) {
-    _internal_set_frames_per_buffer(from._internal_frames_per_buffer());
+  if (from._internal_frames_per_buffer() != 0) {
+    _this->_internal_set_frames_per_buffer(from._internal_frames_per_buffer());
   }
-  if (from.sample_rate() != 0) {
-    _internal_set_sample_rate(from._internal_sample_rate());
+  if (from._internal_sample_rate() != 0) {
+    _this->_internal_set_sample_rate(from._internal_sample_rate());
   }
-}
-
-void Audio::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:rero.Audio)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Audio::CopyFrom(const Audio& from) {
@@ -736,31 +1088,39 @@ bool Audio::IsInitialized() const {
 
 void Audio::InternalSwap(Audio* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  raw_data_.Swap(&other->raw_data_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.raw_data_, lhs_arena,
+                                       &other->_impl_.raw_data_, rhs_arena);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Audio, sample_rate_)
-      + sizeof(Audio::sample_rate_)
-      - PROTOBUF_FIELD_OFFSET(Audio, num_samples_)>(
-          reinterpret_cast<char*>(&num_samples_),
-          reinterpret_cast<char*>(&other->num_samples_));
+      PROTOBUF_FIELD_OFFSET(Audio, _impl_.sample_rate_)
+      + sizeof(Audio::_impl_.sample_rate_)
+      - PROTOBUF_FIELD_OFFSET(Audio, _impl_.num_samples_)>(
+          reinterpret_cast<char*>(&_impl_.num_samples_),
+          reinterpret_cast<char*>(&other->_impl_.num_samples_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Audio::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_audio_2eproto_getter, &descriptor_table_audio_2eproto_once,
+      file_level_metadata_audio_2eproto[2]);
 }
-
-
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace rero
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::rero::StreamRequest* Arena::CreateMaybeMessage< ::rero::StreamRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::rero::StreamRequest*
+Arena::CreateMaybeMessage< ::rero::StreamRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::rero::StreamRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::rero::Audio* Arena::CreateMaybeMessage< ::rero::Audio >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::rero::PlayResult*
+Arena::CreateMaybeMessage< ::rero::PlayResult >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::rero::PlayResult >(arena);
+}
+template<> PROTOBUF_NOINLINE ::rero::Audio*
+Arena::CreateMaybeMessage< ::rero::Audio >(Arena* arena) {
   return Arena::CreateMessageInternal< ::rero::Audio >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
-
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>
+#include "google/protobuf/port_undef.inc"

@@ -7,24 +7,23 @@
 #include "text_to_speech.pb.h"
 
 #include <functional>
-#include <grpc/impl/codegen/port_platform.h>
-#include <grpcpp/impl/codegen/async_generic_service.h>
-#include <grpcpp/impl/codegen/async_stream.h>
-#include <grpcpp/impl/codegen/async_unary_call.h>
-#include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/client_context.h>
-#include <grpcpp/impl/codegen/completion_queue.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
-#include <grpcpp/impl/codegen/proto_utils.h>
-#include <grpcpp/impl/codegen/rpc_method.h>
-#include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
-#include <grpcpp/impl/codegen/service_type.h>
-#include <grpcpp/impl/codegen/status.h>
-#include <grpcpp/impl/codegen/stub_options.h>
-#include <grpcpp/impl/codegen/sync_stream.h>
+#include <grpcpp/generic/async_generic_service.h>
+#include <grpcpp/support/async_stream.h>
+#include <grpcpp/support/async_unary_call.h>
+#include <grpcpp/support/client_callback.h>
+#include <grpcpp/client_context.h>
+#include <grpcpp/completion_queue.h>
+#include <grpcpp/support/message_allocator.h>
+#include <grpcpp/support/method_handler.h>
+#include <grpcpp/impl/proto_utils.h>
+#include <grpcpp/impl/rpc_method.h>
+#include <grpcpp/support/server_callback.h>
+#include <grpcpp/impl/server_callback_handlers.h>
+#include <grpcpp/server_context.h>
+#include <grpcpp/impl/service_type.h>
+#include <grpcpp/support/status.h>
+#include <grpcpp/support/stub_options.h>
+#include <grpcpp/support/sync_stream.h>
 
 namespace rero {
 
@@ -43,30 +42,22 @@ class TextToSpeech final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::rero::TTSResponse>> PrepareAsyncTTS(::grpc::ClientContext* context, const ::rero::TTSRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::rero::TTSResponse>>(PrepareAsyncTTSRaw(context, request, cq));
     }
-    class experimental_async_interface {
+    class async_interface {
      public:
-      virtual ~experimental_async_interface() {}
+      virtual ~async_interface() {}
       virtual void TTS(::grpc::ClientContext* context, const ::rero::TTSRequest* request, ::rero::TTSResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void TTS(::grpc::ClientContext* context, const ::rero::TTSRequest* request, ::rero::TTSResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void TTS(::grpc::ClientContext* context, const ::rero::TTSRequest* request, ::rero::TTSResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
     };
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    typedef class experimental_async_interface async_interface;
-    #endif
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    async_interface* async() { return experimental_async(); }
-    #endif
-    virtual class experimental_async_interface* experimental_async() { return nullptr; }
-  private:
+    typedef class async_interface experimental_async_interface;
+    virtual class async_interface* async() { return nullptr; }
+    class async_interface* experimental_async() { return async(); }
+   private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::rero::TTSResponse>* AsyncTTSRaw(::grpc::ClientContext* context, const ::rero::TTSRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::rero::TTSResponse>* PrepareAsyncTTSRaw(::grpc::ClientContext* context, const ::rero::TTSRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
-    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
     ::grpc::Status TTS(::grpc::ClientContext* context, const ::rero::TTSRequest& request, ::rero::TTSResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::rero::TTSResponse>> AsyncTTS(::grpc::ClientContext* context, const ::rero::TTSRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::rero::TTSResponse>>(AsyncTTSRaw(context, request, cq));
@@ -74,26 +65,22 @@ class TextToSpeech final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::rero::TTSResponse>> PrepareAsyncTTS(::grpc::ClientContext* context, const ::rero::TTSRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::rero::TTSResponse>>(PrepareAsyncTTSRaw(context, request, cq));
     }
-    class experimental_async final :
-      public StubInterface::experimental_async_interface {
+    class async final :
+      public StubInterface::async_interface {
      public:
       void TTS(::grpc::ClientContext* context, const ::rero::TTSRequest* request, ::rero::TTSResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void TTS(::grpc::ClientContext* context, const ::rero::TTSRequest* request, ::rero::TTSResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void TTS(::grpc::ClientContext* context, const ::rero::TTSRequest* request, ::rero::TTSResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
      private:
       friend class Stub;
-      explicit experimental_async(Stub* stub): stub_(stub) { }
+      explicit async(Stub* stub): stub_(stub) { }
       Stub* stub() { return stub_; }
       Stub* stub_;
     };
-    class experimental_async_interface* experimental_async() override { return &async_stub_; }
+    class async* async() override { return &async_stub_; }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    class experimental_async async_stub_{this};
+    class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::rero::TTSResponse>* AsyncTTSRaw(::grpc::ClientContext* context, const ::rero::TTSRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::rero::TTSResponse>* PrepareAsyncTTSRaw(::grpc::ClientContext* context, const ::rero::TTSRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_TTS_;
@@ -128,36 +115,22 @@ class TextToSpeech final {
   };
   typedef WithAsyncMethod_TTS<Service > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_TTS : public BaseClass {
+  class WithCallbackMethod_TTS : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_TTS() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
+    WithCallbackMethod_TTS() {
+      ::grpc::Service::MarkMethodCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::rero::TTSRequest, ::rero::TTSResponse>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::rero::TTSRequest* request, ::rero::TTSResponse* response) { return this->TTS(context, request, response); }));}
+                   ::grpc::CallbackServerContext* context, const ::rero::TTSRequest* request, ::rero::TTSResponse* response) { return this->TTS(context, request, response); }));}
     void SetMessageAllocatorFor_TTS(
-        ::grpc::experimental::MessageAllocator< ::rero::TTSRequest, ::rero::TTSResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+        ::grpc::MessageAllocator< ::rero::TTSRequest, ::rero::TTSResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::rero::TTSRequest, ::rero::TTSResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_TTS() override {
+    ~WithCallbackMethod_TTS() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -165,20 +138,11 @@ class TextToSpeech final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* TTS(
-      ::grpc::CallbackServerContext* /*context*/, const ::rero::TTSRequest* /*request*/, ::rero::TTSResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* TTS(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::rero::TTSRequest* /*request*/, ::rero::TTSResponse* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::rero::TTSRequest* /*request*/, ::rero::TTSResponse* /*response*/)  { return nullptr; }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_TTS<Service > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_TTS<Service > ExperimentalCallbackService;
+  typedef WithCallbackMethod_TTS<Service > CallbackService;
+  typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_TTS : public BaseClass {
    private:
@@ -217,27 +181,17 @@ class TextToSpeech final {
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_TTS : public BaseClass {
+  class WithRawCallbackMethod_TTS : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_TTS() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
+    WithRawCallbackMethod_TTS() {
+      ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->TTS(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->TTS(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_TTS() override {
+    ~WithRawCallbackMethod_TTS() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
@@ -245,14 +199,8 @@ class TextToSpeech final {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* TTS(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* TTS(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_TTS : public BaseClass {

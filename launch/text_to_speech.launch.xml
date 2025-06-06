@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="core_host" default="0.0.0.0"/>
+  <arg name="core_port" default="50052"/>
+  <arg name="namespace" default="rero_ros"/>
+  
+  <group>
+    <push-ros-namespace namespace="$(var namespace)"/>
+    
+    <node pkg="rero_ros" name="text_to_speech" exec="text_to_speech" output="screen">
+      <param name="core_host" value="$(var core_host)" />
+      <param name="core_port" value="$(var core_port)" />
+      <param name="input_topic_name" value="/$(var namespace)/text_to_speech" />
+    </node>
+  </group>
+</launch>

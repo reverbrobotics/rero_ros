@@ -6,19 +6,19 @@
 #include "text_to_speech.grpc.pb.h"
 
 #include <functional>
-#include <grpcpp/impl/codegen/async_stream.h>
-#include <grpcpp/impl/codegen/async_unary_call.h>
-#include <grpcpp/impl/codegen/channel_interface.h>
-#include <grpcpp/impl/codegen/client_unary_call.h>
-#include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
-#include <grpcpp/impl/codegen/rpc_service_method.h>
-#include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
-#include <grpcpp/impl/codegen/service_type.h>
-#include <grpcpp/impl/codegen/sync_stream.h>
+#include <grpcpp/support/async_stream.h>
+#include <grpcpp/support/async_unary_call.h>
+#include <grpcpp/impl/channel_interface.h>
+#include <grpcpp/impl/client_unary_call.h>
+#include <grpcpp/support/client_callback.h>
+#include <grpcpp/support/message_allocator.h>
+#include <grpcpp/support/method_handler.h>
+#include <grpcpp/impl/rpc_service_method.h>
+#include <grpcpp/support/server_callback.h>
+#include <grpcpp/impl/server_callback_handlers.h>
+#include <grpcpp/server_context.h>
+#include <grpcpp/impl/service_type.h>
+#include <grpcpp/support/sync_stream.h>
 namespace rero {
 
 static const char* TextToSpeech_method_names[] = {
@@ -27,23 +27,23 @@ static const char* TextToSpeech_method_names[] = {
 
 std::unique_ptr< TextToSpeech::Stub> TextToSpeech::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< TextToSpeech::Stub> stub(new TextToSpeech::Stub(channel));
+  std::unique_ptr< TextToSpeech::Stub> stub(new TextToSpeech::Stub(channel, options));
   return stub;
 }
 
-TextToSpeech::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_TTS_(TextToSpeech_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+TextToSpeech::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_TTS_(TextToSpeech_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status TextToSpeech::Stub::TTS(::grpc::ClientContext* context, const ::rero::TTSRequest& request, ::rero::TTSResponse* response) {
   return ::grpc::internal::BlockingUnaryCall< ::rero::TTSRequest, ::rero::TTSResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_TTS_, context, request, response);
 }
 
-void TextToSpeech::Stub::experimental_async::TTS(::grpc::ClientContext* context, const ::rero::TTSRequest* request, ::rero::TTSResponse* response, std::function<void(::grpc::Status)> f) {
+void TextToSpeech::Stub::async::TTS(::grpc::ClientContext* context, const ::rero::TTSRequest* request, ::rero::TTSResponse* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::rero::TTSRequest, ::rero::TTSResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_TTS_, context, request, response, std::move(f));
 }
 
-void TextToSpeech::Stub::experimental_async::TTS(::grpc::ClientContext* context, const ::rero::TTSRequest* request, ::rero::TTSResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void TextToSpeech::Stub::async::TTS(::grpc::ClientContext* context, const ::rero::TTSRequest* request, ::rero::TTSResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_TTS_, context, request, response, reactor);
 }
 

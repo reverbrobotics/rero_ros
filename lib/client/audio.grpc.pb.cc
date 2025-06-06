@@ -6,40 +6,42 @@
 #include "audio.grpc.pb.h"
 
 #include <functional>
-#include <grpcpp/impl/codegen/async_stream.h>
-#include <grpcpp/impl/codegen/async_unary_call.h>
-#include <grpcpp/impl/codegen/channel_interface.h>
-#include <grpcpp/impl/codegen/client_unary_call.h>
-#include <grpcpp/impl/codegen/client_callback.h>
-#include <grpcpp/impl/codegen/message_allocator.h>
-#include <grpcpp/impl/codegen/method_handler.h>
-#include <grpcpp/impl/codegen/rpc_service_method.h>
-#include <grpcpp/impl/codegen/server_callback.h>
-#include <grpcpp/impl/codegen/server_callback_handlers.h>
-#include <grpcpp/impl/codegen/server_context.h>
-#include <grpcpp/impl/codegen/service_type.h>
-#include <grpcpp/impl/codegen/sync_stream.h>
+#include <grpcpp/support/async_stream.h>
+#include <grpcpp/support/async_unary_call.h>
+#include <grpcpp/impl/channel_interface.h>
+#include <grpcpp/impl/client_unary_call.h>
+#include <grpcpp/support/client_callback.h>
+#include <grpcpp/support/message_allocator.h>
+#include <grpcpp/support/method_handler.h>
+#include <grpcpp/impl/rpc_service_method.h>
+#include <grpcpp/support/server_callback.h>
+#include <grpcpp/impl/server_callback_handlers.h>
+#include <grpcpp/server_context.h>
+#include <grpcpp/impl/service_type.h>
+#include <grpcpp/support/sync_stream.h>
 namespace rero {
 
 static const char* AudioStreamer_method_names[] = {
   "/rero.AudioStreamer/GetStream",
+  "/rero.AudioStreamer/PlayAudio",
 };
 
 std::unique_ptr< AudioStreamer::Stub> AudioStreamer::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< AudioStreamer::Stub> stub(new AudioStreamer::Stub(channel));
+  std::unique_ptr< AudioStreamer::Stub> stub(new AudioStreamer::Stub(channel, options));
   return stub;
 }
 
-AudioStreamer::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_GetStream_(AudioStreamer_method_names[0], ::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+AudioStreamer::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_GetStream_(AudioStreamer_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_PlayAudio_(AudioStreamer_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::CLIENT_STREAMING, channel)
   {}
 
 ::grpc::ClientReader< ::rero::Audio>* AudioStreamer::Stub::GetStreamRaw(::grpc::ClientContext* context, const ::rero::StreamRequest& request) {
   return ::grpc::internal::ClientReaderFactory< ::rero::Audio>::Create(channel_.get(), rpcmethod_GetStream_, context, request);
 }
 
-void AudioStreamer::Stub::experimental_async::GetStream(::grpc::ClientContext* context, const ::rero::StreamRequest* request, ::grpc::experimental::ClientReadReactor< ::rero::Audio>* reactor) {
+void AudioStreamer::Stub::async::GetStream(::grpc::ClientContext* context, const ::rero::StreamRequest* request, ::grpc::ClientReadReactor< ::rero::Audio>* reactor) {
   ::grpc::internal::ClientCallbackReaderFactory< ::rero::Audio>::Create(stub_->channel_.get(), stub_->rpcmethod_GetStream_, context, request, reactor);
 }
 
@@ -49,6 +51,22 @@ void AudioStreamer::Stub::experimental_async::GetStream(::grpc::ClientContext* c
 
 ::grpc::ClientAsyncReader< ::rero::Audio>* AudioStreamer::Stub::PrepareAsyncGetStreamRaw(::grpc::ClientContext* context, const ::rero::StreamRequest& request, ::grpc::CompletionQueue* cq) {
   return ::grpc::internal::ClientAsyncReaderFactory< ::rero::Audio>::Create(channel_.get(), cq, rpcmethod_GetStream_, context, request, false, nullptr);
+}
+
+::grpc::ClientWriter< ::rero::Audio>* AudioStreamer::Stub::PlayAudioRaw(::grpc::ClientContext* context, ::rero::PlayResult* response) {
+  return ::grpc::internal::ClientWriterFactory< ::rero::Audio>::Create(channel_.get(), rpcmethod_PlayAudio_, context, response);
+}
+
+void AudioStreamer::Stub::async::PlayAudio(::grpc::ClientContext* context, ::rero::PlayResult* response, ::grpc::ClientWriteReactor< ::rero::Audio>* reactor) {
+  ::grpc::internal::ClientCallbackWriterFactory< ::rero::Audio>::Create(stub_->channel_.get(), stub_->rpcmethod_PlayAudio_, context, response, reactor);
+}
+
+::grpc::ClientAsyncWriter< ::rero::Audio>* AudioStreamer::Stub::AsyncPlayAudioRaw(::grpc::ClientContext* context, ::rero::PlayResult* response, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncWriterFactory< ::rero::Audio>::Create(channel_.get(), cq, rpcmethod_PlayAudio_, context, response, true, tag);
+}
+
+::grpc::ClientAsyncWriter< ::rero::Audio>* AudioStreamer::Stub::PrepareAsyncPlayAudioRaw(::grpc::ClientContext* context, ::rero::PlayResult* response, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncWriterFactory< ::rero::Audio>::Create(channel_.get(), cq, rpcmethod_PlayAudio_, context, response, false, nullptr);
 }
 
 AudioStreamer::Service::Service() {
@@ -62,6 +80,16 @@ AudioStreamer::Service::Service() {
              ::grpc::ServerWriter<::rero::Audio>* writer) {
                return service->GetStream(ctx, req, writer);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      AudioStreamer_method_names[1],
+      ::grpc::internal::RpcMethod::CLIENT_STREAMING,
+      new ::grpc::internal::ClientStreamingHandler< AudioStreamer::Service, ::rero::Audio, ::rero::PlayResult>(
+          [](AudioStreamer::Service* service,
+             ::grpc::ServerContext* ctx,
+             ::grpc::ServerReader<::rero::Audio>* reader,
+             ::rero::PlayResult* resp) {
+               return service->PlayAudio(ctx, reader, resp);
+             }, this)));
 }
 
 AudioStreamer::Service::~Service() {
@@ -71,6 +99,13 @@ AudioStreamer::Service::~Service() {
   (void) context;
   (void) request;
   (void) writer;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status AudioStreamer::Service::PlayAudio(::grpc::ServerContext* context, ::grpc::ServerReader< ::rero::Audio>* reader, ::rero::PlayResult* response) {
+  (void) context;
+  (void) reader;
+  (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
