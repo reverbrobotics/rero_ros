@@ -1,9 +1,16 @@
 cmake_minimum_required(VERSION 3.11.0)
-project(rero_ros)
+project(rero_ros  LANGUAGES C CXX)
 
 # Set C++ standard for ROS 2
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+endif()
+
+if(NOT MSVC)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+else()
+  add_definitions(-D_WIN32_WINNT=0x600)
 endif()
 
 # Compiler warnings
@@ -21,28 +28,18 @@ find_package(rclpy REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/modules")
+
+set(ARCH "X86_64" CACHE STRING "Architecture type")
+
+option(GRPC_FETCHCONTENT "Use git to fetch grpc" ON)
+
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/common.cmake)
+
 # Enable C++ standard propagation for Abseil
 set(ABSL_PROPAGATE_CXX_STD ON)
 
-# Fetch gRPC and dependencies
-include(FetchContent)
-set(ABSL_ENABLE_INSTALL ON)
 
-FetchContent_Declare(
-  grpc
-  GIT_REPOSITORY https://github.com/grpc/grpc.git
-  GIT_TAG        v1.58.0
-)
-
-set(FETCHCONTENT_QUIET OFF)
-FetchContent_MakeAvailable(grpc)
-
-# Set gRPC/Protobuf variables (no find_package for Protobuf!)
-set(_REFLECTION grpc++_reflection)
-set(_GRPC_GRPCPP grpc++)
-set(_PROTOBUF_LIBPROTOBUF protobuf)
-set(_PROTOBUF_PROTOC $<TARGET_FILE:protobuf::protoc>)
-set(_GRPC_CPP_PLUGIN_EXECUTABLE $<TARGET_FILE:grpc_cpp_plugin>)
 
 # ROS 2 interface generation
 rosidl_generate_interfaces(${PROJECT_NAME}
@@ -85,10 +82,6 @@ target_link_libraries(nlu
   ${_REFLECTION}
   ${_GRPC_GRPCPP}
   ${_PROTOBUF_LIBPROTOBUF}
-
-  absl::strings
-  absl::cord
-  absl::base
 )
 
 # Install target
