@@ -2,10 +2,10 @@ cmake_minimum_required(VERSION 3.11.0)
 project(rero_ros  LANGUAGES C CXX)
 
 # Set C++ standard for ROS 2
-if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
-  set(CMAKE_CXX_STANDARD_REQUIRED ON)
-endif()
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 
 if(NOT MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
@@ -78,10 +78,13 @@ ament_target_dependencies(nlu
 
 target_link_libraries(nlu
   ${cpp_typesupport_target}
+  ${RERO_LIB_PATH}
   ${_REFLECTION}
   ${_GRPC_GRPCPP}
   ${_PROTOBUF_LIBPROTOBUF}
-  ${RERO_LIB_PATH}
+  -static-libgcc
+  -static-libstdc++
+  -lstdc++fs
 )
 
 # Install target
