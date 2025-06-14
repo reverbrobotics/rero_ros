@@ -14,9 +14,9 @@ else()
 endif()
 
 # Compiler warnings
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
-endif()
+#if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+#  add_compile_options(-Wall -Wextra -Wpedantic)
+#endif()
 
 # Needed on some platforms for atomic ops (e.g., abseil)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -latomic")
@@ -37,8 +37,7 @@ option(GRPC_FETCHCONTENT "Use git to fetch grpc" ON)
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/common.cmake)
 
 # Enable C++ standard propagation for Abseil
-set(ABSL_PROPAGATE_CXX_STD ON)
-
+#set(ABSL_PROPAGATE_CXX_STD ON)
 
 
 # ROS 2 interface generation
@@ -74,9 +73,6 @@ add_executable(nlu src/nlu.cpp)
 ament_target_dependencies(nlu
   rclcpp
   std_msgs
-)
-
-target_link_libraries(nlu
   ${cpp_typesupport_target}
   ${RERO_LIB_PATH}
   ${_REFLECTION}
@@ -86,6 +82,19 @@ target_link_libraries(nlu
   -static-libstdc++
   -lstdc++fs
 )
+
+#target_link_libraries(nlu
+#  rclcpp
+#  std_msgs
+#  ${cpp_typesupport_target}
+#  ${_REFLECTION}
+#  ${_GRPC_GRPCPP}
+#  ${_PROTOBUF_LIBPROTOBUF}
+#  ${RERO_LIB_PATH}
+#  -static-libgcc
+#  -static-libstdc++
+#  -lstdc++fs
+#)
 
 # Install target
 install(TARGETS

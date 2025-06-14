@@ -66,11 +66,11 @@ else()
 
   set(_PROTOBUF_LIBPROTOBUF protobuf::libprotobuf)
   set(_REFLECTION gRPC::grpc++_reflection)
-  if(CMAKE_CROSSCOMPILING)
-    find_program(_PROTOBUF_PROTOC protoc)
-  else()
-    set(_PROTOBUF_PROTOC $<TARGET_FILE:protobuf::protoc>)
-  endif()
+#  if(CMAKE_CROSSCOMPILING)
+#    find_program(_PROTOBUF_PROTOC protoc)
+#  else()
+  set(_PROTOBUF_PROTOC $<TARGET_FILE:protobuf::protoc>)
+#  endif()
 
   # Find gRPC installation
   # Looks for gRPCConfig.cmake file installed by gRPC's cmake installation.
