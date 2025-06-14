@@ -78,10 +78,10 @@ ament_target_dependencies(nlu
 
 target_link_libraries(nlu
   ${cpp_typesupport_target}
-  ${RERO_LIB_PATH}
   ${_REFLECTION}
   ${_GRPC_GRPCPP}
   ${_PROTOBUF_LIBPROTOBUF}
+  ${RERO_LIB_PATH}
 )
 
 # Install target
