@@ -19,6 +19,7 @@
 #include <grpcpp/server_context.h>
 #include <grpcpp/impl/service_type.h>
 #include <grpcpp/support/sync_stream.h>
+#include <grpcpp/ports_def.inc>
 namespace rero {
 
 static const char* NLU_method_names[] = {
@@ -83,4 +84,5 @@ NLU::Service::~Service() {
 
 
 }  // namespace rero
+#include <grpcpp/ports_undef.inc>
 
