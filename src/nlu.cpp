@@ -24,7 +24,7 @@ public:
     {
         // Declare parameters with default values
         this->declare_parameter("core_host", "localhost");
-        this->declare_parameter("core_port", "50051");
+        this->declare_parameter("core_port", "50052");
         this->declare_parameter("input_topic_name", "speech_recognition");
         this->declare_parameter("output_topic_name", "nlu_intent");
         
@@ -35,20 +35,28 @@ public:
         std::string outputTopicName = this->get_parameter("output_topic_name").as_string();
         
         std::string address = grpcHost + ":" + grpcPort;
+	RCLCPP_INFO(this->get_logger(), "gRPC Address: [%s]", address.c_str());
         
         // Initialize gRPC client
         auto nluChannel = grpc::CreateChannel(address, grpc::InsecureChannelCredentials());
         client_ = std::make_unique<NLUClient>(nluChannel);
-        
+	
         if(nluChannel->GetState(false) == GRPC_CHANNEL_TRANSIENT_FAILURE) {
             RCLCPP_INFO(this->get_logger(), "gRPC Cannot Communicate with ReroCore Audio Server!");
         }
-        
+
+	RCLCPP_INFO(this->get_logger(), "before publisher created");
+	
         // Create publisher and subscriber
-        publisher_ = this->create_publisher<rero_ros::msg::Intent>(outputTopicName, 1000);
+        publisher_ = this->create_publisher<rero_ros::msg::Intent>(outputTopicName, 10);
+
+	RCLCPP_INFO(this->get_logger(), "Publisher created!");
+	
         subscription_ = this->create_subscription<std_msgs::msg::String>(
             inputTopicName, 1000,
             std::bind(&ReroNLUNode::speechRecognitionCallback, this, std::placeholders::_1));
+
+	RCLCPP_INFO(this->get_logger(), "Subscriber created!");
     }
 
 private:
