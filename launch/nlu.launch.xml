@@ -10,7 +10,7 @@
     <node pkg="rero_ros" name="nlu" exec="nlu" output="screen">
       <param name="core_host" value="$(var core_host)" />
       <param name="core_port" type="str" value="$(var core_port)"/>
-      <param name="input_topic_name" value="/$(var namespace)/recognized_text" />
+      <param name="input_topic_name" value="/$(var namespace)/speech_recognition" />
       <param name="output_topic_name" value="/$(var namespace)/nlu_result" />
     </node>
   </group>
