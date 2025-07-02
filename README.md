@@ -17,3 +17,7 @@ Next, make build dir and compile gRPC
 ### Colcon build with gRPC
 
 ```colcon build --symlink-install --cmake-args -DGRPC_FETCHCONTENT=OFF -DCMAKE_PREFIX_PATH=~/grpc_install```
+
+## Launching Package
+
+```ros2 launch rero_ros nlu.launch.xml```
