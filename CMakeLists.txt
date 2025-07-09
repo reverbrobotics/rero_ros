@@ -57,6 +57,9 @@ set(RERO_LIB_PATH "${PROJECT_SOURCE_DIR}/lib/client/${RERO_LIB_NAME}")
 # Build executables
 add_executable(nlu src/nlu.cpp)
 ament_target_dependencies(nlu rclcpp std_msgs)
+
+ament_export_dependencies(rosidl_default_runtime)
+
 target_link_libraries(nlu
   ${cpp_typesupport_target}
   ${RERO_LIB_PATH}
@@ -68,9 +71,9 @@ target_link_libraries(nlu
   absl::flags_parse
   absl::log
   absl::log_initialize
-  -static-libgcc
-  -static-libstdc++
-  -lstdc++fs
+#  -static-libgcc
+#  -static-libstdc++
+#  -lstdc++fs
 )
 
 #add_executable(speech_recognition src/speech_recognition.cpp)

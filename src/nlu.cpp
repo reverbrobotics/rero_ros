@@ -14,7 +14,7 @@ using grpc::ClientWriter;
 
 using rero::Intent;
 using rero::Slot;
-
+#include <iostream>
 #include <sstream>
 
 class ReroNLUNode : public rclcpp::Node
@@ -22,12 +22,12 @@ class ReroNLUNode : public rclcpp::Node
 public:
     ReroNLUNode() : Node("rero_nlu")
     {
-        // Declare parameters with default values
+      // Declare parameters with default values
         this->declare_parameter("core_host", "localhost");
         this->declare_parameter("core_port", "50052");
         this->declare_parameter("input_topic_name", "speech_recognition");
         this->declare_parameter("output_topic_name", "nlu_intent");
-        
+
         // Get parameters
         std::string grpcHost = this->get_parameter("core_host").as_string();
         std::string grpcPort = this->get_parameter("core_port").as_string();
@@ -93,8 +93,9 @@ private:
 
 int main(int argc, char **argv)
 {
+
     rclcpp::init(argc, argv);
-    
+
     auto node = std::make_shared<ReroNLUNode>();
     
     rclcpp::spin(node);
