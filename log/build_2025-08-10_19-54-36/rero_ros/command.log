@@ -1,4 +1,0 @@
-Invoking command in '/home/turtle/ws/rero_ros/build/rero_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/turtle/ws/rero_ros/build/rero_ros -- -j4 -l4
-Invoked command in '/home/turtle/ws/rero_ros/build/rero_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/turtle/ws/rero_ros/build/rero_ros -- -j4 -l4
-Invoking command in '/home/turtle/ws/rero_ros/build/rero_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/turtle/ws/rero_ros/build/rero_ros
-Invoked command in '/home/turtle/ws/rero_ros/build/rero_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/turtle/ws/rero_ros/build/rero_ros

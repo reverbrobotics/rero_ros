@@ -1,1 +1,0 @@
-/home/turtle/ws/rero_ros/build/rero_ros/rosidl_typesupport_fastrtps_cpp/rero_ros/msg/detail/slot__rosidl_typesupport_fastrtps_cpp.hpp

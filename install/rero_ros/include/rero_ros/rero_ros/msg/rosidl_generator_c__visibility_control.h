@@ -1,1 +1,0 @@
-/home/turtle/ws/rero_ros/build/rero_ros/rosidl_generator_c/rero_ros/msg/rosidl_generator_c__visibility_control.h

@@ -1,1 +1,0 @@
-/home/turtle/ws/rero_ros/build/rero_ros/rosidl_cmake/rosidl_cmake_export_typesupport_targets-extras.cmake

@@ -1,7 +1,0 @@
-{
-  "package_name": "rero_ros",
-  "non_idl_tuples": [
-    "/home/turtle/ws/rero_ros:msg/Slot.msg",
-    "/home/turtle/ws/rero_ros:msg/Intent.msg"
-  ]
-}

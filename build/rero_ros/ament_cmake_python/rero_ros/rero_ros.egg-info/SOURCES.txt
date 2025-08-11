@@ -1,9 +1,0 @@
-setup.py
-rero_ros/__init__.py
-rero_ros.egg-info/PKG-INFO
-rero_ros.egg-info/SOURCES.txt
-rero_ros.egg-info/dependency_links.txt
-rero_ros.egg-info/top_level.txt
-rero_ros/msg/__init__.py
-rero_ros/msg/_intent.py
-rero_ros/msg/_slot.py

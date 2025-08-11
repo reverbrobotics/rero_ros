@@ -1,1 +1,0 @@
-/home/turtle/ws/rero_ros/build/rero_ros/ament_cmake_environment_hooks/local_setup.bash

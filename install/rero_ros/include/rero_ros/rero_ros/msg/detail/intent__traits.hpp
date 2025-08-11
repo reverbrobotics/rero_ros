@@ -1,1 +1,0 @@
-/home/turtle/ws/rero_ros/build/rero_ros/rosidl_generator_cpp/rero_ros/msg/detail/intent__traits.hpp
