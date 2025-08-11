@@ -13,7 +13,7 @@
 #include <grpcpp/grpcpp.h>
 #include <thread>
 #include <chrono>
-#include "audio.grpc.pb.h"
+#include "../audio.grpc.pb.h"
 
 #define CHECK_OVERFLOW  (0)
 #define CHECK_UNDERFLOW  (0)

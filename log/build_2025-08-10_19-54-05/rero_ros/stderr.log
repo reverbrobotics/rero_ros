@@ -1,0 +1,8 @@
+In file included from [01m[K/home/turtle/ws/rero_ros/src/speech_recognition.cpp:5[m[K:
+[01m[K/home/turtle/ws/rero_ros/lib/client/include/SpeechRecognitionClient.h:17:10:[m[K [01;31m[Kfatal error: [m[Kaudio.grpc.pb.h: No such file or directory
+   17 | #include [01;31m[K"audio.grpc.pb.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/speech_recognition.dir/build.make:76: CMakeFiles/speech_recognition.dir/src/speech_recognition.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:657: CMakeFiles/speech_recognition.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

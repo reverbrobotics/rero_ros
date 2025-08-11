@@ -1,0 +1,162 @@
+[0.022s] Invoking command in '/home/turtle/ws/rero_ros/build/rero_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/turtle/ws/rero_ros/build/rero_ros -- -j4 -l4
+[0.113s] [  2%] Built target rero_ros__rosidl_generator_type_description
+[0.131s] [  2%] Built target ament_cmake_python_symlink_rero_ros
+[0.149s] [  4%] Built target rero_ros__cpp
+[0.154s] [ 20%] Built target rero_ros__rosidl_generator_c
+[0.203s] [ 30%] Built target rero_ros__rosidl_typesupport_cpp
+[0.204s] [ 38%] Built target rero_ros__rosidl_typesupport_fastrtps_cpp
+[0.205s] [ 44%] Built target rero_ros__rosidl_typesupport_fastrtps_c
+[0.250s] [ 54%] Built target rero_ros__rosidl_typesupport_introspection_c
+[0.252s] [ 60%] Built target rero_ros__rosidl_typesupport_c
+[0.253s] [ 68%] Built target rero_ros__rosidl_typesupport_introspection_cpp
+[0.308s] [ 72%] Built target nlu
+[0.310s] [ 74%] [32mBuilding CXX object CMakeFiles/speech_recognition.dir/src/speech_recognition.cpp.o[0m
+[0.314s] [ 78%] Built target text_to_speech
+[0.347s] [ 78%] Built target rero_ros
+[0.386s] [ 80%] Built target rero_ros__py
+[0.430s] [ 86%] Built target rero_ros__rosidl_generator_py
+[0.477s] [ 92%] Built target rero_ros_s__rosidl_typesupport_fastrtps_c
+[0.478s] [ 94%] Built target rero_ros_s__rosidl_typesupport_introspection_c
+[0.517s] [ 98%] Built target rero_ros_s__rosidl_typesupport_c
+[0.529s] running egg_info
+[0.556s] writing rero_ros.egg-info/PKG-INFO
+[0.556s] writing dependency_links to rero_ros.egg-info/dependency_links.txt
+[0.563s] writing top-level names to rero_ros.egg-info/top_level.txt
+[0.648s] reading manifest file 'rero_ros.egg-info/SOURCES.txt'
+[0.649s] writing manifest file 'rero_ros.egg-info/SOURCES.txt'
+[0.735s] [ 98%] Built target ament_cmake_python_build_rero_ros_egg
+[11.660s] [100%] [32m[1mLinking CXX executable speech_recognition[0m
+[21.916s] [100%] Built target speech_recognition
+[21.940s] Invoked command in '/home/turtle/ws/rero_ros/build/rero_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/turtle/ws/rero_ros/build/rero_ros -- -j4 -l4
+[21.958s] Invoking command in '/home/turtle/ws/rero_ros/build/rero_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/turtle/ws/rero_ros/build/rero_ros
+[21.971s] -- Install configuration: ""
+[21.972s] -- Execute custom install script
+[21.972s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/ament_index/resource_index/rosidl_interfaces/rero_ros
+[21.989s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/msg/Slot.json
+[22.005s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/msg/Intent.json
+[22.023s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__functions.h
+[22.039s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__struct.h
+[22.055s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__type_support.h
+[22.072s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__functions.h
+[22.088s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__struct.h
+[22.105s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__type_support.h
+[22.121s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/intent.h
+[22.137s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/rosidl_generator_c__visibility_control.h
+[22.155s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/slot.h
+[22.171s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/library_path.sh
+[22.187s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/library_path.dsv
+[22.205s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__rosidl_typesupport_fastrtps_c.h
+[22.221s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__rosidl_typesupport_fastrtps_c.h
+[22.237s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[22.255s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__builder.hpp
+[22.271s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__struct.hpp
+[22.288s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__traits.hpp
+[22.304s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__type_support.hpp
+[22.320s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__builder.hpp
+[22.337s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__struct.hpp
+[22.352s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__traits.hpp
+[22.370s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__type_support.hpp
+[22.385s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/intent.hpp
+[22.401s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/rosidl_generator_cpp__visibility_control.hpp
+[22.417s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/slot.hpp
+[22.434s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__rosidl_typesupport_fastrtps_cpp.hpp
+[22.450s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__rosidl_typesupport_fastrtps_cpp.hpp
+[22.466s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[22.483s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__rosidl_typesupport_introspection_c.h
+[22.499s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__rosidl_typesupport_introspection_c.h
+[22.515s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[22.532s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__rosidl_typesupport_introspection_cpp.hpp
+[22.548s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__rosidl_typesupport_introspection_cpp.hpp
+[22.565s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/pythonpath.sh
+[22.582s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/pythonpath.dsv
+[22.600s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros-0.0.0-py3.12.egg-info/PKG-INFO
+[22.616s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros-0.0.0-py3.12.egg-info/SOURCES.txt
+[22.633s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros-0.0.0-py3.12.egg-info/dependency_links.txt
+[22.648s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros-0.0.0-py3.12.egg-info/top_level.txt
+[22.665s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/__init__.py
+[22.682s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/_rero_ros_s.ep.rosidl_typesupport_c.c
+[22.698s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/_rero_ros_s.ep.rosidl_typesupport_fastrtps_c.c
+[22.715s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/_rero_ros_s.ep.rosidl_typesupport_introspection_c.c
+[22.730s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/__init__.py
+[22.747s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/_intent.py
+[22.763s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/_intent_s.c
+[22.780s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/_slot.py
+[22.796s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/_slot_s.c
+[22.812s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/rero_ros_s__rosidl_typesupport_c.so
+[22.829s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/rero_ros_s__rosidl_typesupport_fastrtps_c.so
+[22.844s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/rero_ros_s__rosidl_typesupport_introspection_c.so
+[22.861s] -- Up-to-date symlink: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/rero_ros_s__rosidl_typesupport_fastrtps_c.so
+[22.862s] -- Up-to-date symlink: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/rero_ros_s__rosidl_typesupport_introspection_c.so
+[22.862s] -- Up-to-date symlink: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/rero_ros_s__rosidl_typesupport_c.so
+[22.862s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/msg/Slot.idl
+[22.879s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/msg/Intent.idl
+[22.896s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/msg/Slot.msg
+[22.912s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/msg/Intent.msg
+[22.929s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/rero_ros/nlu
+[22.946s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/rero_ros/text_to_speech
+[22.962s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/rero_ros/speech_recognition
+[22.979s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/launch/nlu.launch.xml
+[22.995s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/launch/speech_recognition.launch.xml
+[23.012s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/launch/text_to_speech.launch.xml
+[23.029s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/ament_index/resource_index/package_run_dependencies/rero_ros
+[23.045s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/ament_index/resource_index/parent_prefix_path/rero_ros
+[23.062s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/ament_prefix_path.sh
+[23.078s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/ament_prefix_path.dsv
+[23.094s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/path.sh
+[23.110s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/path.dsv
+[23.128s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/local_setup.bash
+[23.144s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/local_setup.sh
+[23.160s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/local_setup.zsh
+[23.177s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/local_setup.dsv
+[23.193s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/package.dsv
+[23.210s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/ament_index/resource_index/packages/rero_ros
+[23.226s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rosidl_cmake-extras.cmake
+[23.242s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/ament_cmake_export_dependencies-extras.cmake
+[23.258s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/ament_cmake_export_include_directories-extras.cmake
+[23.274s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/ament_cmake_export_libraries-extras.cmake
+[23.292s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/ament_cmake_export_targets-extras.cmake
+[23.309s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[23.324s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[23.341s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_rosConfig.cmake
+[23.357s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_rosConfig-version.cmake
+[23.374s] -- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/package.xml
+[23.390s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_generator_c.so
+[23.391s] -- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_generator_c.so" to ""
+[23.391s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_fastrtps_c.so
+[23.392s] -- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_fastrtps_c.so" to ""
+[23.392s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_fastrtps_cpp.so
+[23.393s] -- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_fastrtps_cpp.so" to ""
+[23.393s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_introspection_c.so
+[23.394s] -- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_introspection_c.so" to ""
+[23.394s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_c.so
+[23.394s] -- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_c.so" to ""
+[23.395s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_introspection_cpp.so
+[23.395s] -- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_introspection_cpp.so" to ""
+[23.396s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_cpp.so
+[23.396s] -- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_cpp.so" to ""
+[23.454s] Listing '/home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros'...
+[23.454s] Compiling '/home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/__init__.py'...
+[23.455s] Listing '/home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg'...
+[23.455s] Compiling '/home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/__init__.py'...
+[23.455s] Compiling '/home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/_intent.py'...
+[23.455s] Compiling '/home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/_slot.py'...
+[23.467s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_generator_py.so
+[23.468s] -- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_generator_py.so" to ""
+[23.468s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_generator_cExport.cmake
+[23.469s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_generator_cExport-noconfig.cmake
+[23.469s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_typesupport_fastrtps_cExport.cmake
+[23.469s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[23.470s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_generator_cppExport.cmake
+[23.470s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_typesupport_fastrtps_cppExport.cmake
+[23.470s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[23.470s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_introspection_cExport.cmake
+[23.470s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[23.470s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_cExport.cmake
+[23.470s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_cExport-noconfig.cmake
+[23.470s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_introspection_cppExport.cmake
+[23.471s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[23.471s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_cppExport.cmake
+[23.471s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_cppExport-noconfig.cmake
+[23.471s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_generator_pyExport.cmake
+[23.471s] -- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_generator_pyExport-noconfig.cmake
+[23.475s] Invoked command in '/home/turtle/ws/rero_ros/build/rero_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/turtle/ws/rero_ros/build/rero_ros

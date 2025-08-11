@@ -16,6 +16,7 @@
 
 #include "../audio.grpc.pb.h"
 #include "../speech_recognition.grpc.pb.h"
+#include "../hotword.grpc.pb.h"
 
 #define CHECK_OVERFLOW  (0)
 #define CHECK_UNDERFLOW  (0)
@@ -25,12 +26,17 @@ using grpc::Channel;
 using grpc::ClientContext;
 using grpc::ClientReader;
 using grpc::ClientWriter;
+using grpc::ClientReaderWriter;
+using grpc::ClientAsyncReaderWriter;
+using grpc::CompletionQueue;
 
 using rero::StreamRequest;
 using rero::AudioStreamer;
 using rero::SpeechRecognition;
 using rero::SpeechRecognitionResult;
 using rero::Audio;
+using rero::HotwordResult;
+using rero::HotwordDetection;
 using namespace std::chrono;
 
 
@@ -39,6 +45,7 @@ public:
     SpeechRecognitionClient(
             const std::shared_ptr<Channel>& audio_channel,
             const std::shared_ptr<Channel>& sr_channel,
+            const std::shared_ptr<Channel>& hw_channel,
             uint32_t sampleRate = 16000,
             uint32_t numChannels = 1,
             std::string format = "paInt16",
@@ -56,6 +63,8 @@ public:
 
     SpeechRecognitionResult StreamAudio();
 
+    SpeechRecognitionResult StreamAudioHotword(const std::string& hotword);
+
     uint16_t getNumBytes() const { return numBytes; }
 
     uint16_t getNumChannels() const { return numChannels; }
@@ -67,6 +76,7 @@ public:
 private:
     std::unique_ptr<AudioStreamer::Stub> audio_stub_;
     std::unique_ptr<SpeechRecognition::Stub> sr_stub_;
+    std::unique_ptr<HotwordDetection::Stub> hw_stub_;
     uint32_t sampleRate;
     uint32_t numChannels;
     std::string format;

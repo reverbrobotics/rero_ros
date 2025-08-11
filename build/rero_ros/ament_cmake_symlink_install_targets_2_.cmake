@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/turtle/ws/rero_ros/build/rero_ros/rosidl_generator_py/rero_ros/rero_ros_s__rosidl_typesupport_c.so" "TARGETS" "rero_ros_s__rosidl_typesupport_c" "DESTINATION" "lib/python3.12/site-packages/rero_ros")

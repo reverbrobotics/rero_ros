@@ -1,0 +1,1 @@
+/home/turtle/ws/rero_ros/build/rero_ros/rosidl_generator_c/rero_ros/msg/detail/intent__struct.h

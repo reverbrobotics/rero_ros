@@ -1,5 +1,5 @@
-#include "ros/ros.h"
-#include "std_msgs/String.h"
+#include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/string.hpp"
 #include <grpcpp/grpcpp.h>
 #include <AudioClient.h>
 #include <SpeechRecognitionClient.h>
@@ -15,60 +15,107 @@ using rero::StreamRequest;
 using rero::AudioStreamer;
 using rero::Audio;
 
+#include <memory>
 #include <sstream>
 
 /**
- * This tutorial demonstrates simple sending of messages over the ROS system.
+ * ROS2 node for streaming audio to a gRPC speech recognition service and publishing results.
  */
-int main(int argc, char **argv) {
-  ros::init(argc, argv, "rero_speech_recognition", ros::init_options::AnonymousName);
+class ReroSpeechRecognitionNode : public rclcpp::Node
+{
+public:
+    ReroSpeechRecognitionNode() : Node("rero_speech_recognition")
+    {
+        this->declare_parameter("core_host", "localhost");
+        this->declare_parameter("core_port", "50051");
+        this->declare_parameter("topic_name", "speech_recognition");
 
-  ros::NodeHandle n;
+        // Assign to member variables, not new local variables
+        grpc_host = this->get_parameter("core_host").as_string();
+        grpc_port = this->get_parameter("core_port").as_string();
+        topic_name = this->get_parameter("topic_name").as_string();
 
-  std::string grpcHost;
-  std::string grpcPort;
-  std::string topicName;
+        // Validate parameters
+        if (grpc_host.empty() || grpc_port.empty() || topic_name.empty()) {
+            RCLCPP_ERROR(this->get_logger(), "One or more parameters are empty. Shutting down.");
+            rclcpp::shutdown();
+            return;
+        }
 
-  n.getParam("core_host", grpcHost);
-  n.getParam("core_port", grpcPort);
-  n.getParam("topic_name", topicName);
+        std::string address = grpc_host + ":" + grpc_port;
+        RCLCPP_INFO(this->get_logger(), "gRPC Address: %s", address.c_str());
+        RCLCPP_INFO(this->get_logger(), "Publishing to topic: %s", topic_name.c_str());
 
-  std::cout << "topic name: " << topicName << std::endl;
+        // Initialize gRPC channels
+        audio_channel_ = grpc::CreateChannel(address, grpc::InsecureChannelCredentials());
+        sr_channel_ = grpc::CreateChannel(address, grpc::InsecureChannelCredentials());
+        hw_channel_ = grpc::CreateChannel(address, grpc::InsecureChannelCredentials());
 
-  ros::Publisher chatter_pub = n.advertise<std_msgs::String>(topicName, 1000);
+        client_ = std::make_unique<SpeechRecognitionClient>(audio_channel_, sr_channel_,hw_channel_);
 
-  auto audioChannel = grpc::CreateChannel(grpcHost+":"+grpcPort, grpc::InsecureChannelCredentials());
-  auto srChannel = grpc::CreateChannel(grpcHost+":"+grpcPort, grpc::InsecureChannelCredentials());
 
-  SpeechRecognitionClient client(audioChannel, srChannel);
+        // Create publisher with QoS settings
+        auto qos = rclcpp::QoS(rclcpp::KeepLast(10)).reliable();
+        publisher_ = this->create_publisher<std_msgs::msg::String>(topic_name, qos);
 
-  while (ros::ok()) {
-    if(audioChannel->GetState(false) == GRPC_CHANNEL_TRANSIENT_FAILURE ||
-     srChannel->GetState(false) == GRPC_CHANNEL_TRANSIENT_FAILURE) {
-      ROS_INFO("gRPC Cannot Communicate with ReroCore Audio Server!");
-      ros::Duration(2.0).sleep();
-      ros::spinOnce();
-      continue;
+        // Start timer for periodic processing
+        timer_ = this->create_wall_timer(
+            std::chrono::milliseconds(100), // 10 Hz
+            std::bind(&ReroSpeechRecognitionNode::processAudio, this));
     }
 
-    std_msgs::String msg;
-    SpeechRecognitionResult result = client.StreamAudio();
+private:
+    void processAudio()
+    {
+        // Check gRPC channel state
+        if (audio_channel_->GetState(false) == GRPC_CHANNEL_TRANSIENT_FAILURE ||
+            sr_channel_->GetState(false) == GRPC_CHANNEL_TRANSIENT_FAILURE) {
+            RCLCPP_WARN(this->get_logger(), "gRPC cannot communicate with ReroCore Audio Server. Retrying...");
+            return;
+        }
 
-    if(result.result().empty()) {
-        ros::spinOnce();
-        continue;
+        try {
+            // Stream audio and get speech recognition result
+            SpeechRecognitionResult result = client_->StreamAudio();
+
+            if (result.result().empty()) {
+                RCLCPP_DEBUG(this->get_logger(), "Empty speech recognition result. Skipping.");
+                return;
+            }
+
+            // Parse JSON result
+            json::JSON resultObject = json::JSON::Load(result.result());
+            if (!resultObject.hasKey("text")) {
+                RCLCPP_WARN(this->get_logger(), "No 'text' field in JSON result. Skipping.");
+                return;
+            }
+
+            // Create and publish message
+            std_msgs::msg::String msg;
+            msg.data = resultObject["text"].ToString();
+            RCLCPP_INFO(this->get_logger(), "Speech recognition result: %s", msg.data.c_str());
+            publisher_->publish(msg);
+        } catch (const std::exception& e) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to process speech recognition: %s", e.what());
+        }
     }
 
-    json::JSON resultObject = json::JSON::Load(result.result());
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+    rclcpp::TimerBase::SharedPtr timer_;
+    std::unique_ptr<SpeechRecognitionClient> client_;
+    std::shared_ptr<grpc::Channel> audio_channel_;
+    std::shared_ptr<grpc::Channel> sr_channel_;
+    std::shared_ptr<grpc::Channel> hw_channel_;
+    std::string grpc_host;
+    std::string grpc_port;
+    std::string topic_name;
+};
 
-    msg.data = resultObject["text"].ToString();
-
-    ROS_INFO("sr result: %s", msg.data.c_str());
-
-    chatter_pub.publish(msg);
-
-    ros::spinOnce();
-  }
-
-  return 0;
+int main(int argc, char **argv)
+{
+    rclcpp::init(argc, argv);
+    auto node = std::make_shared<ReroSpeechRecognitionNode>();
+    rclcpp::spin(node);
+    rclcpp::shutdown();
+    return 0;
 }

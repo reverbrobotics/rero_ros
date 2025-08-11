@@ -1,0 +1,1 @@
+/home/turtle/ws/rero_ros/build/rero_ros/rosidl_typesupport_fastrtps_c/rero_ros/msg/rosidl_typesupport_fastrtps_c__visibility_control.h

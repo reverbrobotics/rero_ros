@@ -1,0 +1,26 @@
+[  2%] Built target rero_ros__rosidl_generator_type_description
+[  2%] Built target ament_cmake_python_symlink_rero_ros
+[  4%] Built target rero_ros__cpp
+[ 20%] Built target rero_ros__rosidl_generator_c
+[ 28%] Built target rero_ros__rosidl_typesupport_fastrtps_c
+[ 36%] Built target rero_ros__rosidl_typesupport_cpp
+[ 44%] Built target rero_ros__rosidl_typesupport_fastrtps_cpp
+[ 52%] Built target rero_ros__rosidl_typesupport_introspection_c
+[ 60%] Built target rero_ros__rosidl_typesupport_introspection_cpp
+[ 68%] Built target rero_ros__rosidl_typesupport_c
+[ 72%] Built target nlu
+[ 72%] Built target rero_ros
+[ 76%] Built target text_to_speech
+[ 78%] [32mBuilding CXX object CMakeFiles/speech_recognition.dir/src/speech_recognition.cpp.o[0m
+[ 80%] Built target rero_ros__py
+[ 86%] Built target rero_ros__rosidl_generator_py
+[ 90%] Built target rero_ros_s__rosidl_typesupport_fastrtps_c
+running egg_info
+[ 94%] Built target rero_ros_s__rosidl_typesupport_introspection_c
+writing rero_ros.egg-info/PKG-INFO
+writing dependency_links to rero_ros.egg-info/dependency_links.txt
+[ 98%] Built target rero_ros_s__rosidl_typesupport_c
+writing top-level names to rero_ros.egg-info/top_level.txt
+reading manifest file 'rero_ros.egg-info/SOURCES.txt'
+writing manifest file 'rero_ros.egg-info/SOURCES.txt'
+[ 98%] Built target ament_cmake_python_build_rero_ros_egg

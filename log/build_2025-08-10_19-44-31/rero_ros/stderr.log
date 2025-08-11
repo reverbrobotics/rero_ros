@@ -1,0 +1,7 @@
+/usr/bin/ld: CMakeFiles/speech_recognition.dir/src/speech_recognition.cpp.o: in function `std::__detail::_MakeUniq<SpeechRecognitionClient>::__single_object std::make_unique<SpeechRecognitionClient, std::shared_ptr<grpc::Channel>&, std::shared_ptr<grpc::Channel>&>(std::shared_ptr<grpc::Channel>&, std::shared_ptr<grpc::Channel>&)':
+speech_recognition.cpp:(.text._ZSt11make_uniqueI23SpeechRecognitionClientJRSt10shared_ptrIN4grpc7ChannelEES5_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_[_ZSt11make_uniqueI23SpeechRecognitionClientJRSt10shared_ptrIN4grpc7ChannelEES5_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_]+0xb8): undefined reference to `SpeechRecognitionClient::SpeechRecognitionClient(std::shared_ptr<grpc::Channel> const&, std::shared_ptr<grpc::Channel> const&, unsigned int, unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned int, unsigned int, unsigned int)'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/speech_recognition.dir/build.make:279: speech_recognition] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:657: CMakeFiles/speech_recognition.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

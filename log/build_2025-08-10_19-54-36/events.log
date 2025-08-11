@@ -1,0 +1,405 @@
+[0.000000] (-) TimerEvent: {}
+[0.000560] (rero_ros) JobQueued: {'identifier': 'rero_ros', 'dependencies': OrderedDict()}
+[0.000762] (rero_ros) JobStarted: {'identifier': 'rero_ros'}
+[0.013243] (rero_ros) JobProgress: {'identifier': 'rero_ros', 'progress': 'cmake'}
+[0.018382] (rero_ros) JobProgress: {'identifier': 'rero_ros', 'progress': 'build'}
+[0.019298] (rero_ros) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/turtle/ws/rero_ros/build/rero_ros', '--', '-j4', '-l4'], 'cwd': '/home/turtle/ws/rero_ros/build/rero_ros', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'turtle', 'SSH_CLIENT': '10.0.0.145 51229 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/turtle', 'OLDPWD': '/home/turtle/ws', 'SSH_TTY': '/dev/pts/0', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'turtle', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '206', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1002', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/turtle/ws/rero_ros/build/rero_ros', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '10.0.0.145 51229 10.0.0.64 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099728] (-) TimerEvent: {}
+[0.113287] (rero_ros) StdoutLine: {'line': b'[  2%] Built target rero_ros__rosidl_generator_type_description\n'}
+[0.131828] (rero_ros) StdoutLine: {'line': b'[  2%] Built target ament_cmake_python_symlink_rero_ros\n'}
+[0.149487] (rero_ros) StdoutLine: {'line': b'[  4%] Built target rero_ros__cpp\n'}
+[0.155094] (rero_ros) StdoutLine: {'line': b'[ 20%] Built target rero_ros__rosidl_generator_c\n'}
+[0.200379] (-) TimerEvent: {}
+[0.203347] (rero_ros) StdoutLine: {'line': b'[ 30%] Built target rero_ros__rosidl_typesupport_cpp\n'}
+[0.204525] (rero_ros) StdoutLine: {'line': b'[ 38%] Built target rero_ros__rosidl_typesupport_fastrtps_cpp\n'}
+[0.205310] (rero_ros) StdoutLine: {'line': b'[ 44%] Built target rero_ros__rosidl_typesupport_fastrtps_c\n'}
+[0.250201] (rero_ros) StdoutLine: {'line': b'[ 54%] Built target rero_ros__rosidl_typesupport_introspection_c\n'}
+[0.251612] (rero_ros) StdoutLine: {'line': b'[ 60%] Built target rero_ros__rosidl_typesupport_c\n'}
+[0.252992] (rero_ros) StdoutLine: {'line': b'[ 68%] Built target rero_ros__rosidl_typesupport_introspection_cpp\n'}
+[0.300532] (-) TimerEvent: {}
+[0.307865] (rero_ros) StdoutLine: {'line': b'[ 72%] Built target nlu\n'}
+[0.309790] (rero_ros) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/speech_recognition.dir/src/speech_recognition.cpp.o\x1b[0m\n'}
+[0.311118] (rero_ros) StdoutLine: {'line': b'[ 78%] Built target text_to_speech\n'}
+[0.347114] (rero_ros) StdoutLine: {'line': b'[ 78%] Built target rero_ros\n'}
+[0.385389] (rero_ros) StdoutLine: {'line': b'[ 80%] Built target rero_ros__py\n'}
+[0.400654] (-) TimerEvent: {}
+[0.430369] (rero_ros) StdoutLine: {'line': b'[ 86%] Built target rero_ros__rosidl_generator_py\n'}
+[0.474937] (rero_ros) StdoutLine: {'line': b'[ 92%] Built target rero_ros_s__rosidl_typesupport_fastrtps_c\n'}
+[0.477982] (rero_ros) StdoutLine: {'line': b'[ 94%] Built target rero_ros_s__rosidl_typesupport_introspection_c\n'}
+[0.500704] (-) TimerEvent: {}
+[0.517258] (rero_ros) StdoutLine: {'line': b'[ 98%] Built target rero_ros_s__rosidl_typesupport_c\n'}
+[0.529536] (rero_ros) StdoutLine: {'line': b'running egg_info\n'}
+[0.556525] (rero_ros) StdoutLine: {'line': b'writing rero_ros.egg-info/PKG-INFO\n'}
+[0.557141] (rero_ros) StdoutLine: {'line': b'writing dependency_links to rero_ros.egg-info/dependency_links.txt\n'}
+[0.563456] (rero_ros) StdoutLine: {'line': b'writing top-level names to rero_ros.egg-info/top_level.txt\n'}
+[0.600810] (-) TimerEvent: {}
+[0.648713] (rero_ros) StdoutLine: {'line': b"reading manifest file 'rero_ros.egg-info/SOURCES.txt'\n"}
+[0.649600] (rero_ros) StdoutLine: {'line': b"writing manifest file 'rero_ros.egg-info/SOURCES.txt'\n"}
+[0.701742] (-) TimerEvent: {}
+[0.734844] (rero_ros) StdoutLine: {'line': b'[ 98%] Built target ament_cmake_python_build_rero_ros_egg\n'}
+[0.801857] (-) TimerEvent: {}
+[0.902267] (-) TimerEvent: {}
+[1.002702] (-) TimerEvent: {}
+[1.103250] (-) TimerEvent: {}
+[1.203660] (-) TimerEvent: {}
+[1.304045] (-) TimerEvent: {}
+[1.404448] (-) TimerEvent: {}
+[1.504835] (-) TimerEvent: {}
+[1.605201] (-) TimerEvent: {}
+[1.705582] (-) TimerEvent: {}
+[1.805968] (-) TimerEvent: {}
+[1.906329] (-) TimerEvent: {}
+[2.006718] (-) TimerEvent: {}
+[2.107116] (-) TimerEvent: {}
+[2.207486] (-) TimerEvent: {}
+[2.307884] (-) TimerEvent: {}
+[2.408265] (-) TimerEvent: {}
+[2.508655] (-) TimerEvent: {}
+[2.609028] (-) TimerEvent: {}
+[2.709414] (-) TimerEvent: {}
+[2.809822] (-) TimerEvent: {}
+[2.910199] (-) TimerEvent: {}
+[3.010599] (-) TimerEvent: {}
+[3.111026] (-) TimerEvent: {}
+[3.211431] (-) TimerEvent: {}
+[3.311856] (-) TimerEvent: {}
+[3.412285] (-) TimerEvent: {}
+[3.512712] (-) TimerEvent: {}
+[3.613127] (-) TimerEvent: {}
+[3.713524] (-) TimerEvent: {}
+[3.813943] (-) TimerEvent: {}
+[3.914297] (-) TimerEvent: {}
+[4.014701] (-) TimerEvent: {}
+[4.115088] (-) TimerEvent: {}
+[4.215470] (-) TimerEvent: {}
+[4.315864] (-) TimerEvent: {}
+[4.416273] (-) TimerEvent: {}
+[4.516676] (-) TimerEvent: {}
+[4.617058] (-) TimerEvent: {}
+[4.717428] (-) TimerEvent: {}
+[4.817815] (-) TimerEvent: {}
+[4.918166] (-) TimerEvent: {}
+[5.018539] (-) TimerEvent: {}
+[5.118916] (-) TimerEvent: {}
+[5.219284] (-) TimerEvent: {}
+[5.319666] (-) TimerEvent: {}
+[5.420037] (-) TimerEvent: {}
+[5.520420] (-) TimerEvent: {}
+[5.620856] (-) TimerEvent: {}
+[5.721231] (-) TimerEvent: {}
+[5.821609] (-) TimerEvent: {}
+[5.921998] (-) TimerEvent: {}
+[6.022400] (-) TimerEvent: {}
+[6.122811] (-) TimerEvent: {}
+[6.223192] (-) TimerEvent: {}
+[6.323606] (-) TimerEvent: {}
+[6.424021] (-) TimerEvent: {}
+[6.524443] (-) TimerEvent: {}
+[6.624877] (-) TimerEvent: {}
+[6.725238] (-) TimerEvent: {}
+[6.825624] (-) TimerEvent: {}
+[6.926024] (-) TimerEvent: {}
+[7.026393] (-) TimerEvent: {}
+[7.126709] (-) TimerEvent: {}
+[7.227104] (-) TimerEvent: {}
+[7.327487] (-) TimerEvent: {}
+[7.427906] (-) TimerEvent: {}
+[7.528286] (-) TimerEvent: {}
+[7.628677] (-) TimerEvent: {}
+[7.729055] (-) TimerEvent: {}
+[7.829428] (-) TimerEvent: {}
+[7.929831] (-) TimerEvent: {}
+[8.030226] (-) TimerEvent: {}
+[8.130596] (-) TimerEvent: {}
+[8.230970] (-) TimerEvent: {}
+[8.331327] (-) TimerEvent: {}
+[8.431703] (-) TimerEvent: {}
+[8.532074] (-) TimerEvent: {}
+[8.632460] (-) TimerEvent: {}
+[8.732857] (-) TimerEvent: {}
+[8.833240] (-) TimerEvent: {}
+[8.933653] (-) TimerEvent: {}
+[9.034029] (-) TimerEvent: {}
+[9.134391] (-) TimerEvent: {}
+[9.234838] (-) TimerEvent: {}
+[9.335226] (-) TimerEvent: {}
+[9.435671] (-) TimerEvent: {}
+[9.536055] (-) TimerEvent: {}
+[9.636429] (-) TimerEvent: {}
+[9.736819] (-) TimerEvent: {}
+[9.837176] (-) TimerEvent: {}
+[9.937529] (-) TimerEvent: {}
+[10.037900] (-) TimerEvent: {}
+[10.138246] (-) TimerEvent: {}
+[10.238616] (-) TimerEvent: {}
+[10.339009] (-) TimerEvent: {}
+[10.439371] (-) TimerEvent: {}
+[10.539728] (-) TimerEvent: {}
+[10.640100] (-) TimerEvent: {}
+[10.740469] (-) TimerEvent: {}
+[10.840860] (-) TimerEvent: {}
+[10.941236] (-) TimerEvent: {}
+[11.041612] (-) TimerEvent: {}
+[11.141993] (-) TimerEvent: {}
+[11.242392] (-) TimerEvent: {}
+[11.342919] (-) TimerEvent: {}
+[11.443313] (-) TimerEvent: {}
+[11.543755] (-) TimerEvent: {}
+[11.644237] (-) TimerEvent: {}
+[11.660780] (rero_ros) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable speech_recognition\x1b[0m\n'}
+[11.744353] (-) TimerEvent: {}
+[11.844751] (-) TimerEvent: {}
+[11.945137] (-) TimerEvent: {}
+[12.045745] (-) TimerEvent: {}
+[12.146522] (-) TimerEvent: {}
+[12.247044] (-) TimerEvent: {}
+[12.347669] (-) TimerEvent: {}
+[12.448461] (-) TimerEvent: {}
+[12.549096] (-) TimerEvent: {}
+[12.649920] (-) TimerEvent: {}
+[12.750486] (-) TimerEvent: {}
+[12.851041] (-) TimerEvent: {}
+[12.951403] (-) TimerEvent: {}
+[13.051796] (-) TimerEvent: {}
+[13.152201] (-) TimerEvent: {}
+[13.252607] (-) TimerEvent: {}
+[13.353055] (-) TimerEvent: {}
+[13.453592] (-) TimerEvent: {}
+[13.554039] (-) TimerEvent: {}
+[13.654482] (-) TimerEvent: {}
+[13.754931] (-) TimerEvent: {}
+[13.855353] (-) TimerEvent: {}
+[13.955799] (-) TimerEvent: {}
+[14.056235] (-) TimerEvent: {}
+[14.156668] (-) TimerEvent: {}
+[14.257270] (-) TimerEvent: {}
+[14.357794] (-) TimerEvent: {}
+[14.458337] (-) TimerEvent: {}
+[14.558947] (-) TimerEvent: {}
+[14.659591] (-) TimerEvent: {}
+[14.760001] (-) TimerEvent: {}
+[14.860424] (-) TimerEvent: {}
+[14.960919] (-) TimerEvent: {}
+[15.061403] (-) TimerEvent: {}
+[15.162318] (-) TimerEvent: {}
+[15.262770] (-) TimerEvent: {}
+[15.363401] (-) TimerEvent: {}
+[15.463875] (-) TimerEvent: {}
+[15.564331] (-) TimerEvent: {}
+[15.664786] (-) TimerEvent: {}
+[15.765356] (-) TimerEvent: {}
+[15.865836] (-) TimerEvent: {}
+[15.966319] (-) TimerEvent: {}
+[16.066882] (-) TimerEvent: {}
+[16.167442] (-) TimerEvent: {}
+[16.268066] (-) TimerEvent: {}
+[16.368631] (-) TimerEvent: {}
+[16.469062] (-) TimerEvent: {}
+[16.569562] (-) TimerEvent: {}
+[16.669947] (-) TimerEvent: {}
+[16.770372] (-) TimerEvent: {}
+[16.870706] (-) TimerEvent: {}
+[16.971078] (-) TimerEvent: {}
+[17.071447] (-) TimerEvent: {}
+[17.171797] (-) TimerEvent: {}
+[17.272137] (-) TimerEvent: {}
+[17.372564] (-) TimerEvent: {}
+[17.473066] (-) TimerEvent: {}
+[17.573557] (-) TimerEvent: {}
+[17.673976] (-) TimerEvent: {}
+[17.774391] (-) TimerEvent: {}
+[17.874754] (-) TimerEvent: {}
+[17.975211] (-) TimerEvent: {}
+[18.075680] (-) TimerEvent: {}
+[18.176049] (-) TimerEvent: {}
+[18.276456] (-) TimerEvent: {}
+[18.376891] (-) TimerEvent: {}
+[18.477271] (-) TimerEvent: {}
+[18.577718] (-) TimerEvent: {}
+[18.678281] (-) TimerEvent: {}
+[18.778694] (-) TimerEvent: {}
+[18.879070] (-) TimerEvent: {}
+[18.979491] (-) TimerEvent: {}
+[19.080014] (-) TimerEvent: {}
+[19.180418] (-) TimerEvent: {}
+[19.280805] (-) TimerEvent: {}
+[19.381158] (-) TimerEvent: {}
+[19.481483] (-) TimerEvent: {}
+[19.581837] (-) TimerEvent: {}
+[19.682196] (-) TimerEvent: {}
+[19.782508] (-) TimerEvent: {}
+[19.882851] (-) TimerEvent: {}
+[19.983175] (-) TimerEvent: {}
+[20.083498] (-) TimerEvent: {}
+[20.183857] (-) TimerEvent: {}
+[20.284176] (-) TimerEvent: {}
+[20.384509] (-) TimerEvent: {}
+[20.484864] (-) TimerEvent: {}
+[20.585185] (-) TimerEvent: {}
+[20.685516] (-) TimerEvent: {}
+[20.785960] (-) TimerEvent: {}
+[20.891171] (-) TimerEvent: {}
+[20.991571] (-) TimerEvent: {}
+[21.091942] (-) TimerEvent: {}
+[21.192342] (-) TimerEvent: {}
+[21.292718] (-) TimerEvent: {}
+[21.393117] (-) TimerEvent: {}
+[21.493664] (-) TimerEvent: {}
+[21.594032] (-) TimerEvent: {}
+[21.694442] (-) TimerEvent: {}
+[21.794935] (-) TimerEvent: {}
+[21.895461] (-) TimerEvent: {}
+[21.916906] (rero_ros) StdoutLine: {'line': b'[100%] Built target speech_recognition\n'}
+[21.940693] (rero_ros) CommandEnded: {'returncode': 0}
+[21.941650] (rero_ros) JobProgress: {'identifier': 'rero_ros', 'progress': 'install'}
+[21.957133] (rero_ros) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/turtle/ws/rero_ros/build/rero_ros'], 'cwd': '/home/turtle/ws/rero_ros/build/rero_ros', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'turtle', 'SSH_CLIENT': '10.0.0.145 51229 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/turtle', 'OLDPWD': '/home/turtle/ws', 'SSH_TTY': '/dev/pts/0', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'turtle', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '206', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1002', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/turtle/ws/rero_ros/build/rero_ros', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '10.0.0.145 51229 10.0.0.64 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[21.971664] (rero_ros) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[21.972475] (rero_ros) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[21.972935] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/ament_index/resource_index/rosidl_interfaces/rero_ros\n'}
+[21.990127] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/msg/Slot.json\n'}
+[21.995550] (-) TimerEvent: {}
+[22.006128] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/msg/Intent.json\n'}
+[22.023313] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__functions.h\n'}
+[22.039566] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__struct.h\n'}
+[22.056108] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__type_support.h\n'}
+[22.072751] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__functions.h\n'}
+[22.088581] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__struct.h\n'}
+[22.095650] (-) TimerEvent: {}
+[22.105517] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__type_support.h\n'}
+[22.121983] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/intent.h\n'}
+[22.137878] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/rosidl_generator_c__visibility_control.h\n'}
+[22.155369] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/slot.h\n'}
+[22.171760] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/library_path.sh\n'}
+[22.188127] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/library_path.dsv\n'}
+[22.195748] (-) TimerEvent: {}
+[22.205964] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__rosidl_typesupport_fastrtps_c.h\n'}
+[22.221268] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__rosidl_typesupport_fastrtps_c.h\n'}
+[22.238176] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[22.255382] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__builder.hpp\n'}
+[22.271628] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__struct.hpp\n'}
+[22.288745] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__traits.hpp\n'}
+[22.295852] (-) TimerEvent: {}
+[22.304450] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__type_support.hpp\n'}
+[22.321128] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__builder.hpp\n'}
+[22.337699] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__struct.hpp\n'}
+[22.353103] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__traits.hpp\n'}
+[22.370239] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__type_support.hpp\n'}
+[22.385910] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/intent.hpp\n'}
+[22.395958] (-) TimerEvent: {}
+[22.401671] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[22.417880] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/slot.hpp\n'}
+[22.435134] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[22.450966] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[22.467045] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[22.484059] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__rosidl_typesupport_introspection_c.h\n'}
+[22.496071] (-) TimerEvent: {}
+[22.499699] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__rosidl_typesupport_introspection_c.h\n'}
+[22.515864] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[22.532510] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/intent__rosidl_typesupport_introspection_cpp.hpp\n'}
+[22.549094] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/include/rero_ros/rero_ros/msg/detail/slot__rosidl_typesupport_introspection_cpp.hpp\n'}
+[22.565707] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/pythonpath.sh\n'}
+[22.582501] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/pythonpath.dsv\n'}
+[22.596185] (-) TimerEvent: {}
+[22.600559] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros-0.0.0-py3.12.egg-info/PKG-INFO\n'}
+[22.616883] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros-0.0.0-py3.12.egg-info/SOURCES.txt\n'}
+[22.633341] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros-0.0.0-py3.12.egg-info/dependency_links.txt\n'}
+[22.648581] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros-0.0.0-py3.12.egg-info/top_level.txt\n'}
+[22.665487] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/__init__.py\n'}
+[22.682536] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/_rero_ros_s.ep.rosidl_typesupport_c.c\n'}
+[22.696286] (-) TimerEvent: {}
+[22.698427] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/_rero_ros_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[22.715776] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/_rero_ros_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[22.731204] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/__init__.py\n'}
+[22.747494] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/_intent.py\n'}
+[22.763543] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/_intent_s.c\n'}
+[22.780565] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/_slot.py\n'}
+[22.796422] (-) TimerEvent: {}
+[22.796813] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/_slot_s.c\n'}
+[22.813146] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/rero_ros_s__rosidl_typesupport_c.so\n'}
+[22.829255] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/rero_ros_s__rosidl_typesupport_fastrtps_c.so\n'}
+[22.845064] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/rero_ros_s__rosidl_typesupport_introspection_c.so\n'}
+[22.862173] (rero_ros) StdoutLine: {'line': b'-- Up-to-date symlink: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/rero_ros_s__rosidl_typesupport_fastrtps_c.so\n'}
+[22.862731] (rero_ros) StdoutLine: {'line': b'-- Up-to-date symlink: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/rero_ros_s__rosidl_typesupport_introspection_c.so\n'}
+[22.863201] (rero_ros) StdoutLine: {'line': b'-- Up-to-date symlink: /home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/rero_ros_s__rosidl_typesupport_c.so\n'}
+[22.863340] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/msg/Slot.idl\n'}
+[22.879435] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/msg/Intent.idl\n'}
+[22.896399] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/msg/Slot.msg\n'}
+[22.896706] (-) TimerEvent: {}
+[22.912336] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/msg/Intent.msg\n'}
+[22.929520] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/rero_ros/nlu\n'}
+[22.947004] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/rero_ros/text_to_speech\n'}
+[22.963169] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/lib/rero_ros/speech_recognition\n'}
+[22.980074] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/launch/nlu.launch.xml\n'}
+[22.996107] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/launch/speech_recognition.launch.xml\n'}
+[22.996789] (-) TimerEvent: {}
+[23.012927] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/launch/text_to_speech.launch.xml\n'}
+[23.030206] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/ament_index/resource_index/package_run_dependencies/rero_ros\n'}
+[23.046167] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/ament_index/resource_index/parent_prefix_path/rero_ros\n'}
+[23.062353] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/ament_prefix_path.sh\n'}
+[23.078260] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/ament_prefix_path.dsv\n'}
+[23.095157] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/path.sh\n'}
+[23.096869] (-) TimerEvent: {}
+[23.110917] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/environment/path.dsv\n'}
+[23.128619] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/local_setup.bash\n'}
+[23.144883] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/local_setup.sh\n'}
+[23.160593] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/local_setup.zsh\n'}
+[23.177754] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/local_setup.dsv\n'}
+[23.193972] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/package.dsv\n'}
+[23.196959] (-) TimerEvent: {}
+[23.210321] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/ament_index/resource_index/packages/rero_ros\n'}
+[23.227064] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rosidl_cmake-extras.cmake\n'}
+[23.243055] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[23.259219] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[23.275107] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[23.292292] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[23.297056] (-) TimerEvent: {}
+[23.309243] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[23.325128] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[23.341872] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_rosConfig.cmake\n'}
+[23.357951] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_rosConfig-version.cmake\n'}
+[23.374453] (rero_ros) StdoutLine: {'line': b'-- Symlinking: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/package.xml\n'}
+[23.390819] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_generator_c.so\n'}
+[23.391819] (rero_ros) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_generator_c.so" to ""\n'}
+[23.392022] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_fastrtps_c.so\n'}
+[23.392792] (rero_ros) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[23.392969] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_fastrtps_cpp.so\n'}
+[23.393758] (rero_ros) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[23.393963] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_introspection_c.so\n'}
+[23.394568] (rero_ros) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_introspection_c.so" to ""\n'}
+[23.394740] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_c.so\n'}
+[23.395340] (rero_ros) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_c.so" to ""\n'}
+[23.395480] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_introspection_cpp.so\n'}
+[23.396264] (rero_ros) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[23.396454] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_cpp.so\n'}
+[23.397015] (rero_ros) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_typesupport_cpp.so" to ""\n'}
+[23.397133] (-) TimerEvent: {}
+[23.454883] (rero_ros) StdoutLine: {'line': b"Listing '/home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros'...\n"}
+[23.455221] (rero_ros) StdoutLine: {'line': b"Compiling '/home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/__init__.py'...\n"}
+[23.455359] (rero_ros) StdoutLine: {'line': b"Listing '/home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg'...\n"}
+[23.455471] (rero_ros) StdoutLine: {'line': b"Compiling '/home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/__init__.py'...\n"}
+[23.455574] (rero_ros) StdoutLine: {'line': b"Compiling '/home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/_intent.py'...\n"}
+[23.455698] (rero_ros) StdoutLine: {'line': b"Compiling '/home/turtle/ws/rero_ros/install/rero_ros/lib/python3.12/site-packages/rero_ros/msg/_slot.py'...\n"}
+[23.468059] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_generator_py.so\n'}
+[23.469119] (rero_ros) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/turtle/ws/rero_ros/install/rero_ros/lib/librero_ros__rosidl_generator_py.so" to ""\n'}
+[23.469351] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_generator_cExport.cmake\n'}
+[23.469777] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_generator_cExport-noconfig.cmake\n'}
+[23.469920] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[23.470021] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[23.470354] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_generator_cppExport.cmake\n'}
+[23.470477] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[23.470573] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[23.470723] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_introspection_cExport.cmake\n'}
+[23.470830] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[23.470964] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_cExport.cmake\n'}
+[23.471107] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[23.471286] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[23.471457] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[23.471645] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_cppExport.cmake\n'}
+[23.471831] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/rero_ros__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[23.472015] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_generator_pyExport.cmake\n'}
+[23.472181] (rero_ros) StdoutLine: {'line': b'-- Installing: /home/turtle/ws/rero_ros/install/rero_ros/share/rero_ros/cmake/export_rero_ros__rosidl_generator_pyExport-noconfig.cmake\n'}
+[23.475623] (rero_ros) CommandEnded: {'returncode': 0}
+[23.497220] (-) TimerEvent: {}
+[23.597470] (-) TimerEvent: {}
+[23.676407] (rero_ros) JobEnded: {'identifier': 'rero_ros', 'rc': 0}
+[23.683674] (-) EventReactorShutdown: {}

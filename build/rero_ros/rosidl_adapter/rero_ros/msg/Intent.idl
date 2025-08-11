@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from rero_ros/msg/Intent.msg
+// generated code does not contain a copyright notice
+
+#include "rero_ros/msg/Slot.idl"
+
+module rero_ros {
+  module msg {
+    struct Intent {
+      string input_text;
+
+      string intent_name;
+
+      float probability;
+
+      sequence<rero_ros::msg::Slot> slots;
+    };
+  };
+};

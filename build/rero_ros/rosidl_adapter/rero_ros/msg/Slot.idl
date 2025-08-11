@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from rero_ros/msg/Slot.msg
+// generated code does not contain a copyright notice
+
+
+module rero_ros {
+  module msg {
+    struct Slot {
+      string raw_value;
+
+      string entity;
+
+      string slot_name;
+
+      uint16 range_start;
+
+      uint16 range_end;
+
+      string type_name;
+
+      string type_value;
+    };
+  };
+};

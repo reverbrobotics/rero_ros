@@ -1,5 +1,5 @@
-#include "ros/ros.h"
-#include "std_msgs/String.h"
+#include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/string.hpp"
 #include <grpcpp/grpcpp.h>
 #include <TTSClient.h>
 #include "json.h"
@@ -14,51 +14,93 @@ using rero::TextToSpeech;
 using rero::TTSRequest;
 using rero::TTSResponse;
 
+#include <memory>
 #include <sstream>
 
 /**
- * This tutorial demonstrates simple sending of messages over the ROS system.
+ * ROS2 node for subscribing to text messages and processing them with a gRPC TTS service.
  */
-
-ros::Publisher pub;
-TTSClient* client;
-
-void ttsCallback(const std_msgs::String::ConstPtr& msg)
+class ReroTTSNode : public rclcpp::Node
 {
-    ROS_INFO("I heard: [%s]", msg->data.c_str());
+public:
+    ReroTTSNode() : Node("rero_tts")
+    {
+        // Declare parameters with default values
+        this->declare_parameter("core_host", "localhost");
+        this->declare_parameter("core_port", "50053");
+        this->declare_parameter("input_topic_name", "tts_input");
 
-    std::string res(msg->data.c_str());
+        // Get parameters
+        grpc_host_ = this->get_parameter("core_host").as_string();
+        grpc_port_ = this->get_parameter("core_port").as_string();
+        input_topic_name_ = this->get_parameter("input_topic_name").as_string();
 
-    TTSResponse response = client->TTS(res);
-}
+        // Validate parameters
+        if (grpc_host_.empty() || grpc_port_.empty() || input_topic_name_.empty()) {
+            RCLCPP_ERROR(this->get_logger(), "One or more parameters are empty. Shutting down.");
+            rclcpp::shutdown();
+            return;
+        }
 
-int main(int argc, char **argv) {
-  ros::init(argc, argv, "rero_tts");
+        std::string address = grpc_host_ + ":" + grpc_port_;
+        RCLCPP_INFO(this->get_logger(), "gRPC Address: %s", address.c_str());
+        RCLCPP_INFO(this->get_logger(), "Subscribing to topic: %s", input_topic_name_.c_str());
 
-  ros::NodeHandle n;
+        // Initialize gRPC channel
+        tts_channel_ = grpc::CreateChannel(address, grpc::InsecureChannelCredentials());
+        client_ = std::make_unique<TTSClient>(tts_channel_);
 
-  std::string grpcHost;
-  std::string grpcPort;
-  std::string inputTopicName;
+        // Check gRPC channel state
+        if (tts_channel_->GetState(false) == GRPC_CHANNEL_TRANSIENT_FAILURE) {
+            RCLCPP_WARN(this->get_logger(), "gRPC cannot communicate with ReroCore TTS Server. Retrying...");
+        }
 
-
-  n.getParam("core_host", grpcHost);
-  n.getParam("core_port", grpcPort);
-  n.getParam("input_topic_name", inputTopicName);
-
-  std::string address = grpcHost+":"+grpcPort;
-
-  auto ttsChannel = grpc::CreateChannel(address, grpc::InsecureChannelCredentials());
-  client = new TTSClient(ttsChannel);
-
-    if(ttsChannel->GetState(false) == GRPC_CHANNEL_TRANSIENT_FAILURE) {
-        ROS_INFO("gRPC Cannot Communicate with ReroCore TTS Server!");
+        // Create subscriber with QoS settings
+        auto qos = rclcpp::QoS(rclcpp::KeepLast(10)).reliable();
+        subscription_ = this->create_subscription<std_msgs::msg::String>(
+            input_topic_name_, qos,
+            std::bind(&ReroTTSNode::ttsCallback, this, std::placeholders::_1));
     }
 
-  ros::Subscriber sub = n.subscribe(inputTopicName, 1000, ttsCallback);
+private:
+    void ttsCallback(const std_msgs::msg::String::SharedPtr msg)
+    {
+        RCLCPP_INFO(this->get_logger(), "Received text: %s", msg->data.c_str());
 
-  ros::spin();
+        // Skip empty messages
+        if (msg->data.empty()) {
+            RCLCPP_WARN(this->get_logger(), "Received empty text message. Skipping.");
+            return;
+        }
 
-  delete client;
-  return 0;
+        // Check gRPC channel state
+        if (tts_channel_->GetState(false) == GRPC_CHANNEL_TRANSIENT_FAILURE) {
+            RCLCPP_WARN(this->get_logger(), "gRPC cannot communicate with ReroCore TTS Server. Skipping.");
+            return;
+        }
+
+        try {
+            // Process text with TTS client
+            TTSResponse response = client_->TTS(msg->data);
+            RCLCPP_INFO(this->get_logger(), "TTS processing completed for text: %s", msg->data.c_str());
+        } catch (const std::exception& e) {
+            RCLCPP_ERROR(this->get_logger(), "Failed to process TTS: %s", e.what());
+        }
+    }
+
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+    std::unique_ptr<TTSClient> client_;
+    std::shared_ptr<grpc::Channel> tts_channel_;
+    std::string grpc_host_;
+    std::string grpc_port_;
+    std::string input_topic_name_;
+};
+
+int main(int argc, char **argv)
+{
+    rclcpp::init(argc, argv);
+    auto node = std::make_shared<ReroTTSNode>();
+    rclcpp::spin(node);
+    rclcpp::shutdown();
+    return 0;
 }

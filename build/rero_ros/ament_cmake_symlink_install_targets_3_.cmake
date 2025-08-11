@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/turtle/ws/rero_ros/build/rero_ros/nlu" "/home/turtle/ws/rero_ros/build/rero_ros/text_to_speech" "/home/turtle/ws/rero_ros/build/rero_ros/speech_recognition" "TARGETS" "nlu" "text_to_speech" "speech_recognition" "DESTINATION" "lib/rero_ros")

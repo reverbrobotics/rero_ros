@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <arg name="core_host" default="0.0.0.0"/>
+  <arg name="core_host" default="10.42.0.125"/>
   <arg name="core_port" default="50052"/>
   
   <group>
     <push-ros-namespace namespace="rero_ros"/>
     <node pkg="rero_ros" name="speech_recognition" exec="speech_recognition" output="screen">
       <param name="core_host" value="$(var core_host)" />
-      <param name="core_port" value="$(var core_port)" />
+      <param name="core_port" type="str" value="$(var core_port)"/>
       <param name="topic_name" value="/rero_ros/recognized_text" />
     </node>
   </group>
