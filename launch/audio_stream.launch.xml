@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="grpc_host" default="10.42.0.125"/>
+  <arg name="grpc_port" default="50052"/>
+  <arg name="topic_name" default="/rero_ros/audio_stream"/>
+  <arg name="sample_rate" default="16000"/>
+  <arg name="num_channels" default="4"/>
+  <arg name="format" default="paInt16"/>
+  <arg name="frames_per_buffer" default="1024"/>
+  <arg name="bytes_per_sample" default="2"/>
+  <arg name="ringbuffer_size" default="10"/>
+
+  <group>
+    <push-ros-namespace namespace="rero_ros"/>
+    <node pkg="rero_ros" name="audio_streaming" exec="audio_streaming" output="screen">
+      <param name="grpc_host" value="$(var grpc_host)"/>
+      <param name="grpc_port" type="str" value="$(var grpc_port)"/>
+      <param name="topic_name" value="$(var topic_name)"/>
+      <param name="sample_rate" value="$(var sample_rate)"/>
+      <param name="num_channels" value="$(var num_channels)"/>
+      <param name="format" value="$(var format)"/>
+      <param name="frames_per_buffer" value="$(var frames_per_buffer)"/>
+      <param name="bytes_per_sample" value="$(var bytes_per_sample)"/>
+      <param name="ringbuffer_size" value="$(var ringbuffer_size)"/>
+    </node>
+  </group>
+</launch>

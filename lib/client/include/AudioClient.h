@@ -35,7 +35,7 @@ public:
     explicit AudioClient(
             const std::shared_ptr<Channel>& channel,
             uint32_t sampleRate = 16000,
-            uint32_t numChannels = 1,
+            uint32_t numChannels = 4,
             std::string format = "paInt16",
             uint32_t framesPerBuffer = 1024,
             uint32_t bytesPerSample = 2,

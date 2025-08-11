@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="topic_name" default="/rero_ros/audio_stream"/>
+  <arg name="output_file" default="received_audio.wav"/>
+  <arg name="sample_rate" default="16000"/>
+  <arg name="num_channels" default="4"/>
+  <arg name="bits_per_sample" default="16"/>
+
+  <group>
+    <push-ros-namespace namespace="rero_ros"/>
+    <node pkg="rero_ros" name="audio_subscriber" exec="audio_subscriber" output="screen">
+      <param name="topic_name" value="$(var topic_name)"/>
+      <param name="output_file" value="$(var output_file)"/>
+      <param name="sample_rate" value="$(var sample_rate)"/>
+      <param name="num_channels" value="$(var num_channels)"/>
+      <param name="bits_per_sample" value="$(var bits_per_sample)"/>
+    </node>
+  </group>
+</launch>

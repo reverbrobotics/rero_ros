@@ -64,6 +64,12 @@ ament_target_dependencies(speech_recognition rclcpp std_msgs)
 add_executable(text_to_speech src/text_to_speech.cpp)
 ament_target_dependencies(text_to_speech rclcpp std_msgs)
 
+add_executable(audio_stream src/audio_stream.cpp)
+ament_target_dependencies(audio_stream rclcpp std_msgs)
+
+add_executable(audio_subscriber src/audio_subscriber.cpp)
+ament_target_dependencies(audio_subscriber rclcpp std_msgs)
+
 ament_export_dependencies(rosidl_default_runtime)
 
 target_link_libraries(nlu
@@ -109,10 +115,39 @@ target_link_libraries(speech_recognition
   absl::log_initialize
 )
 
+
+target_link_libraries(audio_stream
+  ${cpp_typesupport_target}
+  ${RERO_LIB_PATH}
+  ${_REFLECTION}
+  ${_GRPC_GRPCPP}
+  ${_PROTOBUF_LIBPROTOBUF}
+  absl::check
+  absl::flags
+  absl::flags_parse
+  absl::log
+  absl::log_initialize
+)
+
+target_link_libraries(audio_subscriber
+  ${cpp_typesupport_target}
+  ${RERO_LIB_PATH}
+  ${_REFLECTION}
+  ${_GRPC_GRPCPP}
+  ${_PROTOBUF_LIBPROTOBUF}
+  absl::check
+  absl::flags
+  absl::flags_parse
+  absl::log
+  absl::log_initialize
+)
+
 install(TARGETS
   nlu
   text_to_speech
   speech_recognition
+  audio_stream
+  audio_subscriber
   DESTINATION lib/${PROJECT_NAME}
 )
 
