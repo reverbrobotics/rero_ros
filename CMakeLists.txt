@@ -36,13 +36,26 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
+find_library(ONNXRUNTIME_LIBRARY NAMES onnxruntime HINTS /usr/local/onnxruntime/lib)
+find_path(ONNXRUNTIME_INCLUDE_DIR NAMES onnxruntime_cxx_api.h HINTS /usr/local/onnxruntime/include)
+if(NOT ONNXRUNTIME_LIBRARY OR NOT ONNXRUNTIME_INCLUDE_DIR)
+  message(FATAL_ERROR "ONNX Runtime not found. Please ensure it is installed in /usr/local/onnxruntime.")
+endif()
+
+# Find libsamplerate
+find_library(SAMPLERATE_LIBRARY NAMES samplerate HINTS /usr/lib /usr/local/lib /usr/lib/aarch64-linux-gnu)
+find_path(SAMPLERATE_INCLUDE_DIR NAMES samplerate.h HINTS /usr/include /usr/local/include)
+if(NOT SAMPLERATE_LIBRARY OR NOT SAMPLERATE_INCLUDE_DIR)
+  message(FATAL_ERROR "libsamplerate not found. Please install it (e.g., sudo apt install libsamplerate0-dev).")
+endif()
 
 include_directories(
   ${PROJECT_SOURCE_DIR}/lib/client/include
   ${PROJECT_SOURCE_DIR}/lib/client/src
   ${CMAKE_CURRENT_BINARY_DIR}
+  ${ONNXRUNTIME_INCLUDE_DIR}
+  ${SAMPLERATE_INCLUDE_DIR}
 )
-
 
 if(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
   set(RERO_LIB_NAME "libReroClientARMv7.a")
@@ -70,6 +83,9 @@ ament_target_dependencies(audio_stream rclcpp std_msgs)
 add_executable(audio_subscriber src/audio_subscriber.cpp)
 ament_target_dependencies(audio_subscriber rclcpp std_msgs)
 
+add_executable(vad_node src/vad_node.cpp)
+ament_target_dependencies(vad_node rclcpp std_msgs)
+
 ament_export_dependencies(rosidl_default_runtime)
 
 target_link_libraries(nlu
@@ -84,10 +100,6 @@ target_link_libraries(nlu
   absl::log
   absl::log_initialize
 )
-
-
-
-
 
 target_link_libraries(text_to_speech
   ${cpp_typesupport_target}
@@ -142,12 +154,19 @@ target_link_libraries(audio_subscriber
   absl::log_initialize
 )
 
+target_link_libraries(vad_node
+  ${cpp_typesupport_target}
+  ${ONNXRUNTIME_LIBRARY}
+  ${SAMPLERATE_LIBRARY}
+)
+
 install(TARGETS
   nlu
   text_to_speech
   speech_recognition
   audio_stream
   audio_subscriber
+  vad_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -12,7 +12,7 @@
 
   <group>
     <push-ros-namespace namespace="rero_ros"/>
-    <node pkg="rero_ros" name="audio_streaming" exec="audio_streaming" output="screen">
+    <node pkg="rero_ros" name="audio_stream" exec="audio_stream" output="screen">
       <param name="grpc_host" value="$(var grpc_host)"/>
       <param name="grpc_port" type="str" value="$(var grpc_port)"/>
       <param name="topic_name" value="$(var topic_name)"/>
