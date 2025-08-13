@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <!-- DOA processor parameters -->
+    <arg name="audio_topic" default="/rero_ros/audio_stream"/>
+  <arg name="doa_topic" default="/doa/angle"/>
+  <arg name="sample_rate" default="16000"/>
+  <arg name="num_channels" default="4"/>
+  <arg name="bytes_per_sample" default="2"/>
+  <arg name="frame_duration" default="0.05"/>
+  <arg name="mean_interval" default="1.0"/>
+  <arg name="energy_threshold" default="1e-7"/>  <!-- Changed from 1e-5 to 1e-7 -->
+  <arg name="speed_of_sound" default="343.0"/>
+  <arg name="mic_distance" default="0.1"/>
+
+  <!-- DOA Processor Node -->
+  <node pkg="rero_ros" name="doa_node" exec="doa_node" output="screen">
+    <param name="audio_topic" value="$(var audio_topic)"/>
+    <param name="doa_topic" value="$(var doa_topic)"/>
+    <param name="sample_rate" value="$(var sample_rate)"/>
+    <param name="num_channels" value="$(var num_channels)"/>
+    <param name="bytes_per_sample" value="$(var bytes_per_sample)"/>
+    <param name="frame_duration" value="$(var frame_duration)"/>
+    <param name="mean_interval" value="$(var mean_interval)"/>
+    <param name="energy_threshold" value="$(var energy_threshold)"/>
+    <param name="speed_of_sound" value="$(var speed_of_sound)"/>
+    <param name="mic_distance" value="$(var mic_distance)"/>
+  </node>
+</launch>

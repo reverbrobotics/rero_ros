@@ -3,12 +3,11 @@
   <arg name="audio_topic" default="/rero_ros/audio_stream"/>
   <arg name="voice_detected_topic" default="/vad_voice_detected"/>
   <arg name="model_path" default="/home/turtle/ws/rero_ros/models/vad/silero_vad.onnx"/>
-  <arg name="silence_to_voice_threshold" default="0.35"/>
-  <arg name="voice_to_silence_threshold" default="0.25"/>
-  <arg name="min_silence_duration_ms" default="200"/>
+<arg name="silence_to_voice_threshold" default="0.4"/>
+<arg name="voice_to_silence_threshold" default="0.3"/>
+<arg name="min_silence_duration_ms" default="250"/>
   <arg name="debug_every_n_frames" default="5"/>
   <arg name="num_channels" default="4"/>
-  <arg name="audio_gain" default="10.0"/>
   <arg name="enable_audio_stats" default="true"/>
   <arg name="volume_analysis_frames" default="100"/>
 
@@ -23,7 +22,6 @@
       <param name="min_silence_duration_ms" value="$(var min_silence_duration_ms)"/>
       <param name="debug_every_n_frames" value="$(var debug_every_n_frames)"/>
       <param name="num_channels" value="$(var num_channels)"/>
-      <param name="audio_gain" value="$(var audio_gain)"/>
       <param name="enable_audio_stats" value="$(var enable_audio_stats)"/>
       <param name="volume_analysis_frames" value="$(var volume_analysis_frames)"/>
     </node>

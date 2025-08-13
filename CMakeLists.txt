@@ -86,6 +86,9 @@ ament_target_dependencies(audio_subscriber rclcpp std_msgs)
 add_executable(vad_node src/vad_node.cpp)
 ament_target_dependencies(vad_node rclcpp std_msgs)
 
+add_executable(doa_node src/doa_node.cpp)
+ament_target_dependencies(doa_node rclcpp std_msgs)
+
 ament_export_dependencies(rosidl_default_runtime)
 
 target_link_libraries(nlu
@@ -154,6 +157,13 @@ target_link_libraries(audio_subscriber
   absl::log_initialize
 )
 
+
+target_link_libraries(doa_node
+  ${cpp_typesupport_target}
+  ${ONNXRUNTIME_LIBRARY}
+  ${SAMPLERATE_LIBRARY}
+)
+
 target_link_libraries(vad_node
   ${cpp_typesupport_target}
   ${ONNXRUNTIME_LIBRARY}
@@ -167,6 +177,7 @@ install(TARGETS
   audio_stream
   audio_subscriber
   vad_node
+  doa_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

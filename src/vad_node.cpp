@@ -10,9 +10,6 @@
 #include <memory>
 #include <stdexcept>
 #include <cstring>
-#include <algorithm>
-#include <numeric>
-#include <cmath>
 
 enum class VadStateType {
     SILENCE,
@@ -91,18 +88,11 @@ public:
         m_silenceFrameIndex = 0;
     }
 
-    std::tuple<bool, float, float> detect(const std::vector<float>& audioFrame) {
+    std::tuple<bool, float> detect(const std::vector<float>& audioFrame) {
         if (audioFrame.size() != SupportedFrameSampleCount) {
             throw std::runtime_error("Invalid frame size: expected " + std::to_string(SupportedFrameSampleCount) +
                                      ", got " + std::to_string(audioFrame.size()));
         }
-
-        // Calculate RMS to see if we have actual audio signal
-        float rms = 0.0f;
-        for (float sample : audioFrame) {
-            rms += sample * sample;
-        }
-        rms = std::sqrt(rms / audioFrame.size());
 
         m_packedAudioFrame = audioFrame;
         m_ortInputs.clear();
@@ -127,7 +117,7 @@ public:
         std::memcpy(m_c.data(), cn, m_c.size() * sizeof(float));
 
         bool voiceDetected = updateState(voiceProbability);
-        return {voiceDetected, voiceProbability, rms};
+        return {voiceDetected, voiceProbability};
     }
 
     const char* getStateString() const {
@@ -154,7 +144,7 @@ private:
             m_stateType = VadStateType::SILENCE_PENDING;
             m_silenceFrameIndex = m_frameIndex;
         }
-        else if (m_stateType == VadStateType::SILENCE_PENDING && voiceProbability > m_voiceToSilenceThreshold) {
+        else if (m_stateType == VadStateType::SILENCE_PENDING && voiceProbability > m_silenceToVoiceThreshold) {
             m_stateType = VadStateType::VOICE;
         }
         else if (m_stateType == VadStateType::SILENCE_PENDING &&
@@ -180,14 +170,11 @@ public:
         declare_parameter("audio_topic", "/rero_ros/audio_stream");
         declare_parameter("voice_detected_topic", "/vad_voice_detected");
         declare_parameter("model_path", "/home/turtle/ws/rero_ros/models/vad/silero_vad.onnx");
-        declare_parameter("silence_to_voice_threshold", 0.35);  // Lower threshold
-        declare_parameter("voice_to_silence_threshold", 0.25);  // Lower threshold
-        declare_parameter("min_silence_duration_ms", 200);      // Shorter duration
-        declare_parameter("debug_every_n_frames", 10);          // More frequent debug
-        declare_parameter("num_channels", 4);
-        declare_parameter("audio_gain", 3.0);                   // Audio gain multiplier
-        declare_parameter("enable_audio_stats", true);          // Enable volume analysis
-        declare_parameter("volume_analysis_frames", 100);       // Analyze volume every N frames
+        declare_parameter("silence_to_voice_threshold", 0.35); 
+        declare_parameter("voice_to_silence_threshold", 0.25);  
+        declare_parameter("min_silence_duration_ms", 200);   
+        declare_parameter("debug_every_n_frames", 10);   
+        declare_parameter("num_channels", 4);         
 
         audio_topic_ = get_parameter("audio_topic").as_string();
         voice_detected_topic_ = get_parameter("voice_detected_topic").as_string();
@@ -197,9 +184,6 @@ public:
         min_silence_duration_ms_ = get_parameter("min_silence_duration_ms").as_int();
         debug_every_n_frames_ = get_parameter("debug_every_n_frames").as_int();
         num_channels_ = get_parameter("num_channels").as_int();
-        audio_gain_ = static_cast<float>(get_parameter("audio_gain").as_double());
-        enable_audio_stats_ = get_parameter("enable_audio_stats").as_bool();
-        volume_analysis_frames_ = get_parameter("volume_analysis_frames").as_int();
 
         size_t min_silence_frames = static_cast<size_t>(min_silence_duration_ms_ * 16000 / 1000 / 512);
 
@@ -213,7 +197,6 @@ public:
             RCLCPP_INFO(get_logger(), "VAD initialized successfully:");
             RCLCPP_INFO(get_logger(), "  Model: %s", model_path_.c_str());
             RCLCPP_INFO(get_logger(), "  Audio channels: %d", num_channels_);
-            RCLCPP_INFO(get_logger(), "  Audio gain: %.1fx", audio_gain_);
             RCLCPP_INFO(get_logger(), "  Silence->Voice threshold: %.3f", silence_to_voice_threshold_);
             RCLCPP_INFO(get_logger(), "  Voice->Silence threshold: %.3f", voice_to_silence_threshold_);
             RCLCPP_INFO(get_logger(), "  Min silence frames: %zu", min_silence_frames);
@@ -252,7 +235,7 @@ private:
             audio_frame_multi.push_back(static_cast<float>(sample) / 32768.0f);
         }
 
-        // Convert multi-channel to mono and apply gain
+        // Convert multi-channel to mono
         std::vector<float> audio_frame_mono;
         if (num_channels_ == 1) {
             audio_frame_mono = std::move(audio_frame_multi);
@@ -269,38 +252,6 @@ private:
             }
         }
 
-        // Apply gain and clamp to prevent clipping
-        for (float& sample : audio_frame_mono) {
-            sample *= audio_gain_;
-            sample = std::clamp(sample, -1.0f, 1.0f);  // Prevent clipping
-        }
-
-        // Audio statistics
-        if (enable_audio_stats_) {
-            updateAudioStats(audio_frame_mono);
-        }
-
-        // Log first message details
-        static bool first_msg = true;
-        if (first_msg) {
-            first_msg = false;
-            RCLCPP_INFO(get_logger(), "First audio message:");
-            RCLCPP_INFO(get_logger(), "  Raw bytes: %zu", msg->data.size());
-            RCLCPP_INFO(get_logger(), "  Multi-channel samples: %zu", audio_frame_multi.size());
-            RCLCPP_INFO(get_logger(), "  Mono samples: %zu", audio_frame_mono.size());
-            RCLCPP_INFO(get_logger(), "  Channels: %d", num_channels_);
-            if (!audio_frame_mono.empty()) {
-                float min_val = *std::min_element(audio_frame_mono.begin(), audio_frame_mono.end());
-                float max_val = *std::max_element(audio_frame_mono.begin(), audio_frame_mono.end());
-                float rms = 0.0f;
-                for (float sample : audio_frame_mono) {
-                    rms += sample * sample;
-                }
-                rms = std::sqrt(rms / audio_frame_mono.size());
-                RCLCPP_INFO(get_logger(), "  After gain: range=[%.6f, %.6f], RMS=%.6f", min_val, max_val, rms);
-            }
-        }
-
         // Buffer audio and process in 512-sample chunks
         audio_buffer_.insert(audio_buffer_.end(), audio_frame_mono.begin(), audio_frame_mono.end());
         
@@ -309,14 +260,14 @@ private:
             audio_buffer_.erase(audio_buffer_.begin(), audio_buffer_.begin() + 512);
             
             try {
-                auto [voice_detected, confidence, rms] = vad_->detect(chunk);
+                auto [voice_detected, confidence] = vad_->detect(chunk);
                 
                 // Debug logging
                 frame_count_++;
                 if (debug_every_n_frames_ > 0 && frame_count_ % debug_every_n_frames_ == 0) {
                     RCLCPP_INFO(get_logger(), 
-                               "Frame %d: RMS=%.5f, Conf=%.4f (thresh: %.3f/%.3f), State=%s, Voice=%s", 
-                               frame_count_, rms, confidence, 
+                               "Frame %d: Conf=%.4f (thresh: %.3f/%.3f), State=%s, Voice=%s", 
+                               frame_count_, confidence, 
                                vad_->getSilenceToVoiceThreshold(), 
                                vad_->getVoiceToSilenceThreshold(),
                                vad_->getStateString(), 
@@ -335,33 +286,6 @@ private:
         }
     }
 
-    void updateAudioStats(const std::vector<float>& audio_samples) {
-        for (float sample : audio_samples) {
-            rms_accumulator_ += sample * sample;
-            max_amplitude_ = std::max(max_amplitude_, std::abs(sample));
-        }
-        sample_count_ += audio_samples.size();
-        
-        if (frame_count_ % volume_analysis_frames_ == 0 && sample_count_ > 0) {
-            float avg_rms = std::sqrt(rms_accumulator_ / sample_count_);
-            RCLCPP_INFO(get_logger(), 
-                       "Audio Stats (last %d frames): Avg RMS=%.6f, Max Amplitude=%.6f", 
-                       volume_analysis_frames_, avg_rms, max_amplitude_);
-            
-            // Suggest gain adjustments
-            if (avg_rms < 0.001f) {
-                RCLCPP_WARN(get_logger(), "Very low audio levels detected! Consider increasing audio_gain parameter.");
-            } else if (avg_rms < 0.01f) {
-                RCLCPP_WARN(get_logger(), "Low audio levels detected. Current gain: %.1fx", audio_gain_);
-            }
-            
-            // Reset stats
-            rms_accumulator_ = 0.0f;
-            max_amplitude_ = 0.0f;
-            sample_count_ = 0;
-        }
-    }
-
     std::unique_ptr<Vad> vad_;
     rclcpp::Subscription<std_msgs::msg::ByteMultiArray>::SharedPtr subscription_;
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher_;
@@ -373,16 +297,8 @@ private:
     int min_silence_duration_ms_;
     int debug_every_n_frames_;
     int num_channels_;
-    float audio_gain_;
-    bool enable_audio_stats_;
-    int volume_analysis_frames_;
     int frame_count_ = 0;
     std::vector<float> audio_buffer_;
-    
-    // Audio statistics
-    float rms_accumulator_ = 0.0f;
-    float max_amplitude_ = 0.0f;
-    size_t sample_count_ = 0;
 };
 
 int main(int argc, char** argv) {
